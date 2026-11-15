@@ -4808,7 +4808,7 @@ YÊU CẦU KIẾN TRÚC &amp; TÍNH NĂNG BẮT BUỘC:
 
       if (ws === "tree") {
         switchTreeSubView(currentTreeSubView);
-      }} else if (ws === "prompt") {
+      } else if (ws === "prompt") {
         renderExtractedPagesEditor();
         updateGitHubPowerShellBox();
       } else {
@@ -5729,8 +5729,7 @@ git push -u origin main`;
     function onTreeNodeClick(e, slideIdx) {
       if (typeof slideIdx === 'number' && slideIdx >= 0) {
         switchWorkspace('deck');
-        currentSlideIndex = slideIdx;
-        renderCurrentSlide();
+        goToSlide(slideIdx);
       }
     }
 
