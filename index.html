@@ -1,0 +1,1407 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gia Phả Họ Lê — Chi phái Gio Linh · Cam Lộ, Quảng Trị</title>
+<meta name="description" content="Gia phả họ Lê — trình chiếu phả hệ từ Đời thứ Nhất đến Đời thứ Bảy, chi phái khởi nguồn tại Gio Linh, định cư Cam Lộ, Quảng Trị.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@500;700;900&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EBD5; --paper2:#EFE2C2; --card:#FBF6E8;
+  --ink:#2B2015; --ink2:#5E4F3A; --lac:#8A1C26; --lac-d:#5E1018; --lac-dd:#2A0A0E;
+  --gold:#B08D3C; --gold-l:#E0C57A; --line:#D8C596; --moss:#56604A;
+  --chrome:116px;
+  --serif:'Noto Serif','Times New Roman',serif; --han:'Noto Serif TC','Noto Serif',serif; --sans:'Be Vietnam Pro',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--sans);color:var(--ink);background:#1b0d0f;overflow:hidden;
+  background-image:radial-gradient(ellipse at 50% 0%,#3a1418 0%,#1b0d0f 60%);}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit}
+
+/* ============ TOP BAR ============ */
+.topbar{position:fixed;top:0;left:0;right:0;height:60px;z-index:40;display:flex;align-items:center;gap:14px;padding:0 18px;
+  background:linear-gradient(#2a0a0e,#220a0d);border-bottom:1px solid rgba(224,197,122,.35);color:#f3e6c4}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.brand .seal{width:34px;height:34px;border:1.5px solid var(--gold-l);display:grid;place-items:center;font-family:var(--han);font-weight:900;font-size:19px;color:var(--gold-l);background:var(--lac);transform:rotate(0)}
+.brand small{display:block;font-family:var(--sans);font-weight:300;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#c9b27a}
+.tabs{display:flex;gap:4px;margin-left:10px}
+.tab{padding:7px 14px;font-size:13px;color:#d9c79a;border:1px solid transparent;border-radius:3px;transition:.15s}
+.tab:hover{color:#fff}
+.tab.on{background:rgba(224,197,122,.14);border-color:rgba(224,197,122,.45);color:#fff}
+.sp{flex:1}
+.tb-in{background:rgba(255,255,255,.07);border:1px solid rgba(224,197,122,.3);color:#f3e6c4;border-radius:3px;padding:7px 10px;font:13px var(--sans);outline:0}
+.tb-in::placeholder{color:#b9a572}
+.tb-in:focus{border-color:var(--gold-l)}
+select.tb-in{max-width:190px}
+select.tb-in option{color:#000}
+.search{position:relative}
+.search input{width:210px}
+.results{position:absolute;right:0;top:38px;width:340px;max-height:60vh;overflow:auto;background:var(--card);color:var(--ink);border:1px solid var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.5);display:none}
+.results.show{display:block}
+.results button{display:block;width:100%;text-align:left;padding:9px 13px;font-size:13px;border-bottom:1px solid var(--line)}
+.results button:hover{background:var(--paper2)}
+.results small{display:block;color:var(--ink2);font-size:11px}
+.results .none{padding:12px;font-size:13px;color:var(--ink2)}
+.ibtn{width:36px;height:34px;border:1px solid rgba(224,197,122,.3);border-radius:3px;color:#e9d9a8;font-size:15px}
+.ibtn:hover{background:rgba(224,197,122,.15)}
+
+/* ============ VIEWS ============ */
+#views{position:fixed;top:60px;left:0;right:0;bottom:0}
+.view{position:absolute;inset:0;display:none}
+.view.on{display:block}
+
+/* ---- deck ---- */
+#deckView.on{display:flex;flex-direction:column}
+.stage-wrap{flex:1;display:grid;place-items:center;padding:14px 18px 6px;min-height:0}
+.stage{position:relative;width:min(100%,calc((100vh - var(--chrome)) * 16 / 9));aspect-ratio:16/9;box-shadow:0 30px 80px rgba(0,0,0,.65),0 0 0 1px rgba(224,197,122,.45)}
+.slide{position:absolute;inset:0;container-type:inline-size;opacity:0;visibility:hidden;transform:translateX(2.5%);transition:opacity .45s ease,transform .45s ease,visibility 0s .45s}
+.slide.prev{transform:translateX(-2.5%)}
+.slide.active{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease,transform .45s ease}
+.dock{height:46px;display:flex;align-items:center;gap:14px;padding:0 20px;color:#e6d6a6;font-size:13px}
+.dock .nav{padding:7px 16px;border:1px solid rgba(224,197,122,.4);border-radius:3px}
+.dock .nav:hover{background:rgba(224,197,122,.15)}
+.bar{flex:1;height:4px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden;cursor:pointer}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-l));transition:width .35s}
+.cnt{min-width:150px;text-align:center;font-family:var(--serif)}
+
+/* ---- book (toàn văn) ---- */
+#bookView{overflow:auto;background:#2a1417}
+#bookView.on{display:block}
+.book{max-width:1180px;margin:0 auto;padding:24px 18px 80px;display:flex;flex-direction:column;gap:22px}
+.book .slide{position:relative;inset:auto;width:100%;aspect-ratio:16/9;opacity:1;visibility:visible;transform:none;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:none}
+
+/* ---- tree ---- */
+#treeView{overflow:auto;background:var(--paper);background-image:radial-gradient(circle at 20% 0%,rgba(176,141,60,.12),transparent 45%)}
+.tree-head{padding:26px 34px 6px;font-family:var(--serif)}
+.tree-head h2{font-size:26px;color:var(--lac-d)}
+.tree-head p{color:var(--ink2);font-size:14px;margin-top:4px}
+.tree-tools{padding:8px 34px 0;display:flex;gap:8px}
+.tree-tools button{padding:6px 12px;border:1px solid var(--gold);color:var(--lac-d);font-size:12.5px;background:var(--card)}
+.tree-tools button:hover{background:var(--lac);color:#fff}
+.tr{padding:10px 34px 80px;min-width:max-content}
+.tr ul{list-style:none;margin-left:22px;padding-left:22px;border-left:1.5px solid var(--gold)}
+.tr>ul{margin-left:0;border:0;padding-left:0}
+.tr li{position:relative;margin:7px 0}
+.tr ul li::before{content:"";position:absolute;left:-22px;top:19px;width:22px;border-top:1.5px solid var(--gold)}
+.tr>ul>li::before{display:none}
+.tn{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--lac);padding:7px 12px;cursor:pointer;font-family:var(--serif);font-size:14px;transition:.15s;box-shadow:0 2px 6px rgba(43,32,21,.08)}
+.tn:hover{border-color:var(--lac);transform:translateX(3px);box-shadow:0 5px 14px rgba(43,32,21,.16)}
+.tn .g{font-family:var(--han);font-size:12px;color:var(--gold);border:1px solid var(--gold);padding:0 5px}
+.tn .k{font-family:var(--sans);font-size:11px;color:var(--ink2)}
+.tn .tg{width:18px;height:18px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-size:11px;color:var(--lac);background:var(--paper)}
+.tr li.col>ul{display:none}
+.tr li.col>.tn .tg::after{content:"+"}
+.tr li:not(.col)>.tn .tg::after{content:"−"}
+.tr li.leaf>.tn .tg{visibility:hidden}
+
+/* ============ SLIDE ART ============ */
+.sl{position:absolute;inset:0;overflow:hidden;
+  --u:1cqw;
+  background:
+   radial-gradient(ellipse at 12% 8%,rgba(176,141,60,.13),transparent 42%),
+   radial-gradient(ellipse at 90% 95%,rgba(138,28,38,.10),transparent 46%),
+   url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .34  0 0 0 0 .15  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+   var(--paper);
+  color:var(--ink);font-size:calc(var(--u)*1.15)}
+.sl::before{content:"";position:absolute;inset:calc(var(--u)*1);border:calc(var(--u)*.16) solid var(--gold);pointer-events:none;z-index:3}
+.sl::after{content:"";position:absolute;inset:calc(var(--u)*1.6);border:calc(var(--u)*.07) solid var(--gold-l);pointer-events:none;z-index:3}
+.cn{position:absolute;width:calc(var(--u)*4.2);height:calc(var(--u)*4.2);z-index:4;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%23B08D3C' stroke-width='2'><path d='M3 37V8Q3 3 8 3H37'/><path d='M9 31V12Q9 9 12 9H31' stroke-width='1' /><path d='M14 14l4 4-4 4-4-4z' fill='%238A1C26' stroke='none'/></svg>") no-repeat center/contain}
+.cn.tl{left:calc(var(--u)*.55);top:calc(var(--u)*.55)}
+.cn.tr_{right:calc(var(--u)*.55);top:calc(var(--u)*.55);transform:scaleX(-1)}
+.cn.bl{left:calc(var(--u)*.55);bottom:calc(var(--u)*.55);transform:scaleY(-1)}
+.cn.br{right:calc(var(--u)*.55);bottom:calc(var(--u)*.55);transform:scale(-1)}
+.foot{position:absolute;left:calc(var(--u)*5);right:calc(var(--u)*5);bottom:calc(var(--u)*2.1);display:flex;justify-content:space-between;align-items:center;font-size:calc(var(--u)*.82);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);z-index:5}
+.foot b{font-family:var(--serif);font-weight:600;color:var(--lac)}
+.foot .mid{flex:1;height:1px;margin:0 calc(var(--u)*1.2);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.wm{position:absolute;font-family:var(--han);font-weight:900;color:var(--lac);opacity:.045;line-height:1;pointer-events:none;user-select:none}
+
+/* ---- Cover ---- */
+.sl.cover{background:
+   radial-gradient(circle at 50% 46%,rgba(224,197,122,.16),transparent 52%),
+   radial-gradient(ellipse at 50% 120%,#1a0508,transparent 60%),
+   linear-gradient(160deg,#6d1520,#3d0b12 55%,#240609);color:#f5e6bd}
+.sl.cover::before{border-color:var(--gold-l)} .sl.cover::after{border-color:rgba(224,197,122,.5)}
+.cover .drum{position:absolute;left:50%;top:50%;width:calc(var(--u)*70);height:calc(var(--u)*70);transform:translate(-50%,-50%);opacity:.14;animation:spin 140s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.cover .vcol{position:absolute;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-family:var(--han);font-weight:700;font-size:calc(var(--u)*1.9);letter-spacing:.7em;color:var(--gold-l);opacity:.85}
+.cover .vcol.l{left:calc(var(--u)*6)} .cover .vcol.r{right:calc(var(--u)*6)}
+.cover .vcol::before{content:"";display:block;width:1px;height:calc(var(--u)*6);background:var(--gold);margin:0 auto calc(var(--u)*1.6)}
+.cv{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 calc(var(--u)*14)}
+.cv .qh{font-family:var(--serif);font-size:calc(var(--u)*1.3);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.cv .kh{font-size:calc(var(--u)*1.05);font-style:italic;opacity:.85;margin-top:calc(var(--u)*.3)}
+.cv .kh::after{content:"";display:block;width:calc(var(--u)*7);height:1px;background:var(--gold-l);margin:calc(var(--u)*.8) auto 0}
+.cv .zp{font-family:var(--han);font-weight:900;font-size:calc(var(--u)*7.4);letter-spacing:.28em;margin:calc(var(--u)*2.4) 0 0 .28em;color:var(--gold-l);text-shadow:0 .25cqw 0 rgba(0,0,0,.35),0 0 3cqw rgba(224,197,122,.28);line-height:1.05}
+.cv h1{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*4.4);letter-spacing:.07em;text-transform:uppercase;margin-top:calc(var(--u)*.8)}
+.cv .sub{font-family:var(--serif);font-style:italic;font-size:calc(var(--u)*1.45);max-width:calc(var(--u)*62);margin-top:calc(var(--u)*1.2);opacity:.92;line-height:1.55}
+.cv .meta{display:flex;gap:calc(var(--u)*4);margin-top:calc(var(--u)*3);padding-top:calc(var(--u)*1.8);border-top:1px solid rgba(224,197,122,.45)}
+.cv .meta div{text-align:center}
+.cv .meta span{display:block;font-size:calc(var(--u)*.78);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:calc(var(--u)*.3)}
+.cv .meta b{font-family:var(--serif);font-weight:500;font-size:calc(var(--u)*1.25)}
+.cv .hint{position:absolute;bottom:calc(var(--u)*2.8);font-size:calc(var(--u)*.85);letter-spacing:.18em;text-transform:uppercase;color:rgba(224,197,122,.7)}
+
+/* ---- Heading block ---- */
+.sh{position:absolute;left:calc(var(--u)*5);right:calc(var(--u)*5);top:calc(var(--u)*3.2)}
+.sh .eb{font-size:calc(var(--u)*.88);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.sh h2{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.6);color:var(--lac-d);margin-top:calc(var(--u)*.3);line-height:1.2}
+.sh .rule{height:calc(var(--u)*.16);margin-top:calc(var(--u)*1);background:linear-gradient(90deg,var(--lac) 0,var(--lac) calc(var(--u)*6),var(--gold) calc(var(--u)*6),transparent)}
+.body{position:absolute;left:calc(var(--u)*5);right:calc(var(--u)*5);top:calc(var(--u)*9.6);bottom:calc(var(--u)*4.8);overflow:hidden}
+
+/* ---- Origin ---- */
+.origin{display:grid;grid-template-columns:1fr 1fr 1fr;gap:calc(var(--u)*2.2);height:100%;align-items:stretch}
+.orb{background:var(--card);border:1px solid var(--line);border-top:calc(var(--u)*.3) solid var(--lac);padding:calc(var(--u)*2) calc(var(--u)*2.2);position:relative;box-shadow:0 .4cqw 1.2cqw rgba(43,32,21,.1)}
+.orb .n{font-family:var(--han);font-weight:900;font-size:calc(var(--u)*4);color:var(--gold);opacity:.55;line-height:1}
+.orb h3{font-family:var(--serif);font-size:calc(var(--u)*1.55);color:var(--lac-d);margin:calc(var(--u)*.5) 0 calc(var(--u)*.8)}
+.orb p{font-size:calc(var(--u)*1.28);line-height:1.7;color:var(--ink2)}
+.orb p strong{color:var(--ink)}
+
+/* ---- Overview / phả đồ ---- */
+.ov{display:flex;flex-direction:column;gap:calc(var(--u)*.9);height:100%}
+.ovrow{display:flex;align-items:center;gap:calc(var(--u)*1.2)}
+.ovg{flex:0 0 calc(var(--u)*8.2);text-align:center;border:1px solid var(--gold);background:var(--card);padding:calc(var(--u)*.4) 0;font-family:var(--serif);font-size:calc(var(--u)*.95);color:var(--lac-d)}
+.ovg b{display:block;font-family:var(--han);font-size:calc(var(--u)*1.8);color:var(--lac);line-height:1.1}
+.ovn{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.6);align-items:center;flex:1;border-bottom:1px dashed var(--line);padding-bottom:calc(var(--u)*.7)}
+.ovn.last{border:0}
+.pill{border:1px solid var(--line);border-left:calc(var(--u)*.28) solid var(--lac);background:var(--card);padding:calc(var(--u)*.35) calc(var(--u)*.9);font-family:var(--serif);font-size:calc(var(--u)*1.12);cursor:pointer;transition:.15s;color:var(--ink)}
+.pill:hover{background:var(--lac);color:#fff;border-color:var(--lac)}
+.pill.sm{font-size:calc(var(--u)*.98);border-left-color:var(--moss)}
+.ovcols{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*1.2);flex:1;min-height:0}
+.ovc{border:1px solid var(--line);background:rgba(251,246,232,.7);padding:calc(var(--u)*.8) calc(var(--u)*1);display:flex;flex-direction:column;gap:calc(var(--u)*.5)}
+.ovc h4{font-family:var(--serif);font-size:calc(var(--u)*1.2);color:var(--lac-d);padding-bottom:calc(var(--u)*.4);border-bottom:1px solid var(--gold);cursor:pointer}
+.ovc h4:hover{color:var(--lac)}
+.ovc .wrapp{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.45)}
+.ovc .more{font-size:calc(var(--u)*.88);color:var(--ink2);font-style:italic}
+.g5{display:flex;flex-direction:column;gap:calc(var(--u)*.3);padding-bottom:calc(var(--u)*.4);border-bottom:1px dotted var(--line)}
+.g5:last-child{border:0}
+.g5 .pill{align-self:flex-start}
+.g6{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.3);padding-left:calc(var(--u)*1.2)}
+.chip{font-size:calc(var(--u)*.88);border:1px solid var(--line);background:var(--paper);padding:0 calc(var(--u)*.55);cursor:pointer;color:var(--ink2);font-family:var(--serif)}
+.chip:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.ovlabel{font-size:calc(var(--u)*.82);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* ---- Stats ---- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*2);height:100%;align-content:center}
+.stc{background:var(--card);border:1px solid var(--line);padding:calc(var(--u)*2.6) calc(var(--u)*1.4);text-align:center;position:relative;border-bottom:calc(var(--u)*.3) solid var(--gold)}
+.stc .v{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*5.6);color:var(--lac);line-height:1}
+.stc .l{font-size:calc(var(--u)*1.1);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-top:calc(var(--u)*.9)}
+.stc .d{font-size:calc(var(--u)*.98);color:var(--ink2);font-style:italic;margin-top:calc(var(--u)*.5)}
+.stnote{grid-column:1/-1;text-align:center;font-family:var(--serif);font-style:italic;font-size:calc(var(--u)*1.3);color:var(--ink2);margin-top:calc(var(--u)*.6)}
+
+/* ---- Generation divider ---- */
+.sl.gen{background:
+  radial-gradient(circle at 50% 50%,rgba(224,197,122,.14),transparent 55%),linear-gradient(150deg,#74161f,#3f0b12 60%,#260609);color:#f5e6bd}
+.sl.gen::before{border-color:var(--gold-l)} .sl.gen::after{border-color:rgba(224,197,122,.5)}
+.gen .g1{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 calc(var(--u)*10)}
+.gen .hh{font-family:var(--han);font-weight:900;font-size:calc(var(--u)*13);color:var(--gold-l);letter-spacing:.12em;line-height:1;text-shadow:0 .4cqw 0 rgba(0,0,0,.3),0 0 4cqw rgba(224,197,122,.25)}
+.gen .rn{font-family:var(--serif);font-size:calc(var(--u)*1.3);letter-spacing:.4em;text-transform:uppercase;color:var(--gold-l);margin-top:calc(var(--u)*1.4)}
+.gen h2{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*3.6);margin-top:calc(var(--u)*.6)}
+.gen .nt{font-family:var(--serif);font-style:italic;font-size:calc(var(--u)*1.5);opacity:.88;margin-top:calc(var(--u)*1)}
+.gen .ln{width:calc(var(--u)*18);height:1px;background:linear-gradient(90deg,transparent,var(--gold-l),transparent);margin:calc(var(--u)*1.8) 0 0}
+.gen .heads{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.6);justify-content:center;margin-top:calc(var(--u)*1.8);max-width:calc(var(--u)*80)}
+.gen .heads span{border:1px solid rgba(224,197,122,.5);padding:calc(var(--u)*.3) calc(var(--u)*.9);font-family:var(--serif);font-size:calc(var(--u)*1.05);color:#f5e6bd;cursor:pointer}
+.gen .heads span:hover{background:rgba(224,197,122,.2)}
+.gen .foot{color:rgba(245,230,189,.6)} .gen .foot b{color:var(--gold-l)} .gen .foot .mid{background:linear-gradient(90deg,transparent,rgba(224,197,122,.6),transparent)}
+
+/* ---- Person ---- */
+.body>*{--u:calc(1cqw*var(--k,1))}
+.pgrid{display:grid;grid-template-rows:minmax(0,1fr);grid-template-columns:calc(var(--u)*25) minmax(0,1fr);gap:calc(var(--u)*2.6);height:100%}
+.tablet{position:relative;border:1px solid var(--gold);background:linear-gradient(180deg,#8f1d28,#5c1019);color:#f7e8bf;padding:calc(var(--u)*2.2) calc(var(--u)*1.8) calc(var(--u)*1.6);display:flex;flex-direction:column;box-shadow:0 .6cqw 1.8cqw rgba(60,10,15,.35);min-height:0;overflow:hidden}
+.tablet::before{content:"";position:absolute;inset:calc(var(--u)*.55);border:1px solid rgba(224,197,122,.55);pointer-events:none}
+.tablet .gh{position:absolute;right:calc(var(--u)*1.2);top:calc(var(--u)*.8);font-family:var(--han);font-weight:900;font-size:calc(var(--u)*5);color:var(--gold-l);opacity:.22;line-height:1}
+.tablet .ey{font-size:calc(var(--u)*.88);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l);line-height:1.5;max-width:72%;min-height:calc(var(--u)*3)}
+.tablet .nm{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.45);line-height:1.22;margin-top:calc(var(--u)*1.2);color:#fff}
+.tablet .nm+.nm{margin-top:calc(var(--u)*.5)}
+.tablet .tg{display:inline-block;align-self:flex-start;margin-top:calc(var(--u)*.9);font-size:calc(var(--u)*.85);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold-l);padding:calc(var(--u)*.2) calc(var(--u)*.7);color:var(--gold-l)}
+.tablet .dt{margin-top:calc(var(--u)*1.4);font-family:var(--serif);font-style:italic;font-size:calc(var(--u)*1.25);line-height:1.5;color:#f1dfae;padding-top:calc(var(--u)*1.1);border-top:1px solid rgba(224,197,122,.4)}
+.tablet .st{margin-top:auto;padding-top:calc(var(--u)*1.2);display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*.4);text-align:center;border-top:1px solid rgba(224,197,122,.4)}
+.tablet .st b{display:block;font-family:var(--serif);font-size:calc(var(--u)*2.1);color:#fff;line-height:1.1}
+.tablet .st span{font-size:calc(var(--u)*.8);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l)}
+.tablet .lk{margin-top:calc(var(--u)*1);font-size:calc(var(--u)*.98);color:var(--gold-l);cursor:pointer;text-decoration:underline;text-underline-offset:.25em;text-decoration-color:rgba(224,197,122,.5)}
+.tablet .lk:hover{color:#fff}
+.pr{display:flex;flex-direction:column;gap:calc(var(--u)*1.3);min-height:0;overflow:hidden}
+.hh_{background:var(--card);border:1px solid var(--line);position:relative}
+.hh_ .sp_{display:flex;align-items:baseline;gap:calc(var(--u)*.9);padding:calc(var(--u)*.8) calc(var(--u)*1.3);background:linear-gradient(90deg,rgba(176,141,60,.20),rgba(176,141,60,.05));border-bottom:1px solid var(--line);font-family:var(--serif);font-size:calc(var(--u)*1.3)}
+.hh_ .rl{font-family:var(--sans);font-size:calc(var(--u)*.82);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--lac);padding:calc(var(--u)*.18) calc(var(--u)*.6);flex:none}
+.hh_ .sp_ em{font-style:normal;color:var(--ink2);font-size:.88em;margin-left:calc(var(--u)*.3)}
+.hh_ .kl{padding:calc(var(--u)*.7) calc(var(--u)*1.3) 0;font-size:calc(var(--u)*.85);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.kids{list-style:none;padding:calc(var(--u)*.6) calc(var(--u)*1.3) calc(var(--u)*.9);display:grid;grid-template-columns:repeat(var(--cols,1),1fr);gap:calc(var(--u)*.35) calc(var(--u)*2);counter-reset:k}
+.kids li{counter-increment:k;position:relative;padding-left:calc(var(--u)*2.7);min-height:calc(var(--u)*2.1);line-height:1.38}
+.kids li::before{content:counter(k);position:absolute;left:0;top:calc(var(--u)*.1);width:calc(var(--u)*1.9);height:calc(var(--u)*1.9);display:grid;place-items:center;border-radius:50%;font-family:var(--serif);font-size:calc(var(--u)*.88);border:1px solid var(--gold);color:var(--gold);background:var(--paper)}
+.kids li.m::before{border-color:var(--lac);color:var(--lac)}
+.kids li.f::before{border-color:var(--moss);color:var(--moss);border-radius:30%}
+.kids .nmx{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*1.22);color:var(--ink)}
+.kids .mt{font-size:calc(var(--u)*1.0);color:var(--ink2)}
+.kids .mt b.ky{font-weight:500;color:var(--lac);border-bottom:1px dotted var(--lac)}
+.kids .mr,.kids .nt{display:block;font-size:calc(var(--u)*.98);line-height:1.35}
+.kids .mr{color:var(--ink2)} .kids .nt{color:var(--moss);font-style:italic}
+.kids li.lk>.nmx{color:var(--lac);cursor:pointer;border-bottom:1px solid var(--gold)}
+.kids li.lk>.nmx:hover{background:rgba(176,141,60,.2)}
+.kids li.lk .go{display:inline-block;margin-left:calc(var(--u)*.4);font-size:calc(var(--u)*.85);color:#fff;background:var(--moss);padding:0 calc(var(--u)*.5);cursor:pointer}
+.empty{padding:calc(var(--u)*1) calc(var(--u)*1.3);font-style:italic;color:var(--ink2);font-size:calc(var(--u)*1.1)}
+.subs{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.6);align-items:center;margin-top:calc(var(--u)*.2)}
+.subs .ovlabel{margin-right:calc(var(--u)*.4)}
+
+/* ---- Closing ---- */
+.sl.end{background:radial-gradient(circle at 50% 40%,rgba(224,197,122,.14),transparent 55%),linear-gradient(155deg,#6d1520,#3a0a11 60%,#220509);color:#f5e6bd}
+.sl.end::before{border-color:var(--gold-l)} .sl.end::after{border-color:rgba(224,197,122,.5)}
+.end .cv .zp{font-size:calc(var(--u)*5.2)}
+.end .cv .sub{max-width:calc(var(--u)*58);font-size:calc(var(--u)*1.6)}
+.end .cv .btns{display:flex;gap:calc(var(--u)*1.2);margin-top:calc(var(--u)*2.4)}
+.end .cv .btns button{border:1px solid var(--gold-l);color:var(--gold-l);padding:calc(var(--u)*.7) calc(var(--u)*1.8);font-size:calc(var(--u)*1.05);letter-spacing:.1em;text-transform:uppercase}
+.end .cv .btns button:hover{background:var(--gold-l);color:var(--lac-dd)}
+
+/* ============ MOBILE ============ */
+@media (max-width:820px){
+  :root{--chrome:150px}
+  .topbar{height:auto;flex-wrap:wrap;padding:8px 10px;gap:8px}
+  .brand small,.sp{display:none}
+  .tabs{margin:0;order:3;width:100%}
+  .tab{flex:1;padding:6px 4px;font-size:12px}
+  .search{flex:1}.search input{width:100%}
+  .results{width:min(340px,92vw);right:auto;left:0}
+  select.tb-in{max-width:120px}
+  #views{top:112px}
+  .stage{width:100%;aspect-ratio:auto}
+  .stage-wrap{display:block;overflow:auto;padding:8px}
+  .slide{position:relative;inset:auto;display:none;transform:none;opacity:1;visibility:visible;transition:none}
+  .slide.active{display:block}
+  .sl{position:relative;inset:auto;--u:3.1cqw;font-size:calc(var(--u)*1.15);padding-bottom:calc(var(--u)*5)}
+  .sh,.body,.foot{position:relative;left:auto;right:auto;top:auto;bottom:auto;margin:0 calc(var(--u)*4)}
+  .sh{padding-top:calc(var(--u)*3.4)} .body{overflow:visible;margin-top:calc(var(--u)*2)}
+  .foot{margin-top:calc(var(--u)*3)}
+  .body>*{--u:3.1cqw}
+  .origin,.pgrid,.stats{grid-template-columns:1fr;grid-template-rows:none}
+  .ovcols{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .tablet .st{margin-top:calc(var(--u)*2)}
+  .kids{grid-template-columns:1fr!important}
+  .cv{position:relative;inset:auto;padding:calc(var(--u)*6) calc(var(--u)*4) calc(var(--u)*9)}
+  .cover .vcol{display:none}
+  .cv .zp{font-size:calc(var(--u)*11)} .cv h1{font-size:calc(var(--u)*6.4)}
+  .cv .meta{flex-direction:column;gap:calc(var(--u)*1.6)}
+  .gen .g1{position:relative;inset:auto;padding:calc(var(--u)*10) calc(var(--u)*4) calc(var(--u)*8)}
+  .gen .hh{font-size:calc(var(--u)*18)}
+  .cv .hint{display:none}
+  .book .slide{aspect-ratio:auto}
+  .dock .cnt{min-width:90px;font-size:12px}
+  .dock{padding:0 10px;gap:8px}
+}
+
+/* ============ PRINT ============ */
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff}
+  .topbar,.dock,#treeView,#deckView{display:none!important}
+  #views{position:static}
+  #bookView{display:block!important;overflow:visible;background:#fff}
+  .book{max-width:none;padding:0;gap:0;display:block}
+  .book .slide{width:297mm;height:209mm;aspect-ratio:auto;box-shadow:none;page-break-after:always;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:reduce){.slide,.cover .drum{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><div class="seal">黎</div><div>Gia Phả Họ Lê<small>Gio Linh · Cam Lộ · Quảng Trị</small></div></div>
+  <nav class="tabs">
+    <button class="tab on" data-v="deck">Trình chiếu</button>
+    <button class="tab" data-v="tree">Phả đồ</button>
+    <button class="tab" data-v="book">Toàn văn</button>
+  </nav>
+  <div class="sp"></div>
+  <select class="tb-in" id="jump" aria-label="Chọn nhanh trang"></select>
+  <div class="search">
+    <input class="tb-in" id="q" type="search" placeholder="Tìm tên, nhánh…  ( / )" autocomplete="off">
+    <div class="results" id="res"></div>
+  </div>
+  <button class="ibtn" id="fs" title="Toàn màn hình (F)">⛶</button>
+  <button class="ibtn" id="pr" title="In gia phả">🖨</button>
+</header>
+
+<div id="views">
+  <section class="view on" id="deckView">
+    <div class="stage-wrap"><div class="stage" id="stage"></div></div>
+    <div class="dock">
+      <button class="nav" id="prev">◀ Trước</button>
+      <div class="bar" id="bar"><i id="barfill"></i></div>
+      <div class="cnt" id="cnt"></div>
+      <div class="bar" style="visibility:hidden;max-width:0;flex:0"></div>
+      <button class="nav" id="next">Tiếp ▶</button>
+    </div>
+  </section>
+  <section class="view" id="treeView">
+    <div class="tree-head"><h2>Phả đồ dòng họ Lê</h2><p>Sơ đồ phân chi theo thế hệ. Bấm vào một tên để mở trang chi tiết; bấm dấu +/− để mở hoặc thu gọn nhánh.</p></div>
+    <div class="tree-tools"><button id="expAll">Mở rộng tất cả</button><button id="colAll">Thu gọn</button></div>
+    <div class="tr" id="tr"></div>
+  </section>
+  <section class="view" id="bookView"><div class="book" id="book"></div></section>
+</div>
+
+<template id="src">
+
+    <section class="origin" id="nguon-goc">
+      <h2>Khởi nguồn Thủy Tổ</h2>
+      <p><strong>Nguyên tiên Thủy Tổ</strong> sinh tại Gio Linh huyện, An Bình tổng, Long Sơn phường.</p>
+      <p><strong>Thủy Tổ</strong> táng tại Long Sơn phường; mộ phần thân thích thất lạc, chỉ còn hy vọng chờ hậu duệ xuất mộ tại Trường Sơn phường; chỉ táng được Tổ Khảo và Tổ Tỷ, hai cụ sinh hạ năm người con.</p>
+      <p><strong>Tổ Khảo</strong> theo việc tòng quân; <strong>Tổ Tỷ</strong> di cư về Cam Lộ huyện, Mai Lộc tổng, phường An định cư lập nghiệp — khởi đầu cho chi phái được ghi chép trong gia phả này.</p>
+    </section>
+
+    <!-- ĐỜI THỨ NHẤT -->
+    <section class="gen-section" id="doi-1">
+      <div class="gen-header">
+        <span class="gen-num">I</span>
+        <h2>Đời thứ Nhất — Tằng Tổ Khảo &amp; Tằng Tổ Tỷ</h2>
+      </div>
+      <div class="branch-tree">
+        <div class="chi-card">
+          <div class="chi-eyebrow">Thế hệ khởi lập chi phái</div>
+          <div class="chi-name">Tằng Tổ Khảo <span class="tag">— tòng quân</span></div>
+          <div class="chi-name">Tằng Tổ Tỷ</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (5 người)</div>
+          <ol class="children">
+            <li>Lê văn Điền</li>
+            <li>Lê văn Hiền <span class="note">(vô tự)</span></li>
+            <li>Lê văn Hậu</li>
+            <li>Lê thị Lai</li>
+            <li>Lê văn Lập</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ĐỜI THỨ HAI -->
+    <section class="gen-section" id="doi-2">
+      <div class="gen-header">
+        <span class="gen-num">II</span>
+        <h2>Đời thứ Hai — Chi hệ Lê văn Điền</h2>
+      </div>
+      <div class="branch-tree">
+        <div class="chi-card">
+          <div class="chi-eyebrow">Con trưởng của Tằng Tổ</div>
+          <div class="chi-name">Lê văn Điền</div>
+          <div class="chi-dates">Kỵ ngày 26 tháng Giêng</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Võ thị Thiên — người thôn Bảng Sơn <span class="note">(vô tự)</span></div>
+          <div class="spouse-block"><span class="role">Vợ kế:</span> Bùi thị Hựu — người thôn Trà Liên</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (7 người)</div>
+          <ol class="children">
+            <li>Lê hữu Vị <span class="note">(vô danh)</span></li>
+            <li>Lê văn Vy</li>
+            <li>Lê văn Chung</li>
+            <li>Lê văn Nguyên — Kỵ ngày 06-8</li>
+            <li>Lê thị Uyên</li>
+            <li>Lê văn Lưu</li>
+            <li>Lê văn Thiên — Kỵ ngày 22-3</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ĐỜI THỨ BA -->
+    <section class="gen-section" id="doi-3">
+      <div class="gen-header">
+        <span class="gen-num">III</span>
+        <h2>Đời thứ Ba — Chi hệ Lê văn Nguyên</h2>
+      </div>
+      <div class="branch-tree">
+        <div class="chi-card">
+          <div class="chi-eyebrow">Hiển Tổ Khảo — Hiển Tổ Tỷ</div>
+          <div class="chi-name">Lê văn Nguyên</div>
+          <div class="chi-dates">Kỵ ngày 06-8</div>
+          <div class="spouse-block"><span class="role">Hiển Tổ Tỷ:</span> Đinh thị Trung — Kỵ ngày 15-9</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (8 người)</div>
+          <ol class="children">
+            <li>Lê thị Yến — Kỵ ngày 17-10 <span class="married">— lấy chồng Hội viên Trần văn Cự (Mai Đàn)</span></li>
+            <li>Lê thị Dàn — Kỵ ngày 06-6 <span class="married">— lấy chồng Nguyễn văn Thanh (trong thôn)</span></li>
+            <li>Lê hữu Vị <span class="note">(vô danh)</span></li>
+            <li>Lê văn Khiêm — Kỵ ngày 17-8</li>
+            <li>Lê văn Cận — sinh năm Bính Tuất, Kỵ ngày 08-10</li>
+            <li>Lê văn Thuyết — sinh năm Canh Dần, Kỵ ngày 10-4</li>
+            <li>Lê văn Tăng — Kỵ ngày 29-11</li>
+            <li>Lê văn Chuyên — Kỵ ngày 29-09</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ĐỜI THỨ TƯ -->
+    <section class="gen-section" id="doi-4">
+      <div class="gen-header">
+        <span class="gen-num">IV</span>
+        <h2>Đời thứ Tư — Ba chi hệ con ông Lê văn Nguyên</h2>
+        <span class="gen-note">Cận · Thuyết · Tặng — cùng thế hệ</span>
+      </div>
+      <div class="branch-tree">
+
+        <div class="chi-card" id="chi-can">
+          <div class="chi-eyebrow">Chi hệ Lê văn Cận</div>
+          <div class="chi-name">Lê văn Cận <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Kỵ ngày 08-10</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Lê thị Cư — sinh năm Đinh Hợi, Kỵ ngày 18-10</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (9 người)</div>
+          <ol class="children">
+            <li>Lê văn hữu vị vô danh — Kỵ ngày 21-11</li>
+            <li>Lê thị Hà — Kỵ ngày 24-01</li>
+            <li>Lê văn Hàm — sinh năm Tân Hợi, Kỵ ngày 04-08</li>
+            <li>Lê văn Hộ — Kỵ ngày 04-05</li>
+            <li>Lê văn Tạ — sinh năm Mậu Ngọ</li>
+            <li>Lê văn Tốn — Kỵ ngày 04-12 <span class="note">(chiến tranh thất lạc)</span></li>
+            <li>Lê thị Dã — Kỵ ngày 11-03</li>
+            <li>Lê văn Tùy — sinh năm Giáp Tý</li>
+            <li>Lê thị Ý (Thêm) — sinh năm Mậu Thìn <span class="married">— lấy chồng Nguyễn văn Noãn (Mai Lộc)</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-thuyet">
+          <div class="chi-eyebrow">Chi hệ Lê văn Thuyết</div>
+          <div class="chi-name">Lê văn Thuyết <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Canh Dần, Kỵ ngày 10-04</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Lê thị Cần — sinh năm Canh Dần, Kỵ ngày 11-03</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (13 người)</div>
+          <ol class="children">
+            <li>Lê thị hữu vị vô danh</li>
+            <li>Lê thị Thận — Kỵ ngày 26-12</li>
+            <li>Lê văn Khanh — Kỵ ngày 17-12</li>
+            <li>Lê văn Nghị — sinh năm Đinh Tỵ</li>
+            <li>Lê văn Đán — Kỵ ngày 30-12</li>
+            <li>Lê thị Duy — Kỵ ngày 21-02 <span class="note">(con bà thứ thất)</span></li>
+            <li>Lê thị Tròn (Diệp) — sinh năm Tân Dậu <span class="married">— lấy chồng Võ Giao (thôn Cam Lộ phường)</span></li>
+            <li>Lê thị Dung — Kỵ ngày 07-05</li>
+            <li>Lê văn Tránh — Kỵ ngày 23-08</li>
+            <li>Lê thị Nghi (Xanh) — sinh năm Mậu Thìn <span class="married">— lấy chồng Lê văn Chức (thôn Cư Hoan)</span></li>
+            <li>Lê thị hữu vị vô danh — Kỵ ngày 24-07</li>
+            <li>Lê thị Ưu — Kỵ ngày 14-08</li>
+            <li>Lê thị Sử — sinh năm Giáp Tuất <span class="married">— lấy chồng Trần văn Đàn (Bảng Sơn), tái giá lấy Nguyễn văn Lộc (Nha Trang)</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-tang">
+          <div class="chi-eyebrow">Chi hệ Lê văn Tặng</div>
+          <div class="chi-name">Lê văn Tặng <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Kỵ ngày 30-11</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Hoàng thị Cửu — Kỵ ngày 10-08</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (7 người)</div>
+          <ol class="children">
+            <li>Lê văn Tuy — sinh năm Bính Thìn, Kỵ ngày 10-12 <span class="note">(chiến tranh thất lạc)</span></li>
+            <li>Lê thị Đào (Lè) — Kỵ ngày 23-02</li>
+            <li>Lê thị Hồng (Lé) — Kỵ ngày 04-06</li>
+            <li>Lê thị Táo (Lẹp) — mất 01-8 năm Đinh Mão, Kỵ ngày 29-01 <span class="married">— lấy chồng Lê văn Quảng, thôn Cư Hoan</span></li>
+            <li>Lê văn Châu — Kỵ ngày 25-02 <span class="note">(con bà thứ thất)</span></li>
+            <li>Lê hữu vị vô danh — Kỵ ngày 13-03</li>
+            <li>Lê văn Duy — sinh năm Canh Ngọ <span class="note">— cư trú tại tỉnh Đắk Lắk, TP. Ban Mê Thuột, phường Tân Lợi</span></li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ĐỜI THỨ NĂM -->
+    <section class="gen-section" id="doi-5">
+      <div class="gen-header">
+        <span class="gen-num">V</span>
+        <h2>Đời thứ Năm</h2>
+        <span class="gen-note">Cháu nội của Hiển Tổ Lê văn Nguyên</span>
+      </div>
+      <div class="branch-tree">
+
+        <div class="chi-card" id="chi-ham">
+          <div class="chi-eyebrow">Con ông Lê văn Cận</div>
+          <div class="chi-name">Lê văn Hàm <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Tân Hợi, Kỵ ngày 04-08</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Đô — Kỵ ngày 04-06</div>
+          <ol class="children">
+            <li>Lê thị Hỷ — sinh năm Tân Mùi <span class="married">— lấy chồng Nguyễn văn Khuynh (trong thôn)</span></li>
+            <li>Lê thị Kham — Kỵ ngày 27-08</li>
+            <li>Lê văn hữu vị vô danh — Kỵ ngày 06-06</li>
+          </ol>
+          <div class="spouse-block"><span class="role">Vợ kế:</span> Nguyễn thị Bản — Mai Lộc, Kỵ ngày 12-07</div>
+          <ol class="children">
+            <li>Lê văn Thức — Kỵ ngày 26-01</li>
+            <li>Lê thị Xuân — Kỵ ngày 13-04</li>
+            <li>Lê thị Cẩm — sinh năm Kỷ Mão <span class="married">— lấy chồng Nguyễn văn Liệu (trong thôn)</span></li>
+            <li>Lê thị Lịch — sinh năm Nhâm Ngọ <span class="married">— lấy chồng Nguyễn văn Thược (trong thôn)</span></li>
+            <li>Lê văn Hiệp — Kỵ ngày 15-06</li>
+            <li>Lê thị Lũi (Thu) — Kỵ ngày 09-08</li>
+          </ol>
+          <div class="spouse-block"><span class="role">Thứ thất:</span> Nguyễn thị Thành — trong thôn</div>
+          <ol class="children">
+            <li>Lê thị Mịch — sinh năm Giáp Ngọ <span class="married">— lấy chồng Võ Sinh, Định Sơn</span></li>
+            <li>Lê văn Tân (Hoà) — sinh năm Bính Thìn <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê vô vị vô danh <span class="note">(sút sản)</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-ta">
+          <div class="chi-eyebrow">Con ông Lê văn Cận, em ông Hàm</div>
+          <div class="chi-name">Lê văn Tạ <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Mậu Ngọ</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Em — trong thôn</div>
+          <ol class="children">
+            <li>Lê văn Cân — Kỵ ngày 20-06</li>
+            <li>Lê văn Duật — sinh năm Tân Tỵ <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Tầm — sinh năm Ất Dậu <span class="note">(cải giá)</span></li>
+            <li>Lê thị Tả — Kỵ ngày 06-03</li>
+            <li>Lê văn Tách — Kỵ ngày 15-06</li>
+            <li>Lê hữu vị vô danh</li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-ton">
+          <div class="chi-eyebrow">Con ông Lê văn Cận, em ông Hàm và ông Tạ</div>
+          <div class="chi-name">Lê văn Tốn <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Canh Thân, Kỵ ngày 04-12 <span class="note">(chiến tranh thất lạc)</span></div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Hoàng thị Huyền — Cư Hoan, Kỵ ngày 22-01</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (13 người)</div>
+          <ol class="children">
+            <li>Lê hữu vị vô danh</li>
+            <li>Lê văn Tỵ — Kỵ ngày 19-11</li>
+            <li>Lê thị Hoằng — sinh năm Quý Mùi <span class="married">— lấy chồng Lê văn Dõng, Cư Hoan</span></li>
+            <li>Lê văn Thược — sinh năm Ất Dậu, Kỵ ngày 27-11</li>
+            <li>Lê thị Khung (Đen) — sinh năm Đinh Hợi <span class="married">— lấy chồng Hoàng văn Tiêm, trong thôn</span></li>
+            <li>Lê thị Quy (Lảnh) — sinh năm Canh Dần <span class="married">— lấy chồng Nguyễn hữu Đồng, Gio Linh</span></li>
+            <li>Lê thị Truật (Thi) — Kỵ ngày 27-10</li>
+            <li>Lê văn Thỉu — sinh năm Giáp Ngọ <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Oanh — Kỵ ngày 18-04</li>
+            <li>Lê thị Tạc (Tý) — sinh năm Mậu Tuất, Kỵ ngày 05-07</li>
+            <li>Lê thị Uyên — Kỵ ngày 16-02</li>
+            <li>Lê văn Sửu — sinh năm Nhâm Dần <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê văn Ất — sinh năm Ất Tỵ <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-tuy2">
+          <div class="chi-eyebrow">Con ông Lê văn Cận, em các ông Hàm, Tạ, Tốn</div>
+          <div class="chi-name">Lê văn Tùy <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Giáp Tý, ngày 01-3</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Thẽn — sinh năm 1922, sinh trong thôn</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (11 người)</div>
+          <ol class="children">
+            <li>Lê thị hữu vị vô danh — Kỵ ngày 17-11</li>
+            <li>Lê thị Thâm — Kỵ ngày 28-01</li>
+            <li>Lê thị Thẹn — Kỵ ngày 05-07</li>
+            <li>Lê thị Thuồng — Kỵ ngày 01-03</li>
+            <li>Lê văn Tảng — sinh năm Mậu Tý <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê văn Hùng — sinh năm Canh Dần <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê văn Bạo — sinh năm Quý Tỵ, Kỵ ngày 12-06</li>
+            <li>Lê văn Mạnh — sinh năm Ất Mùi <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê văn Mỵ — Kỵ ngày 11-12</li>
+            <li>Lê thị Dạn — sinh năm Kỷ Hợi <span class="married">— lấy chồng Hoàng hữu Lân, Cư Hoan</span></li>
+            <li>Lê văn Duận — sinh năm Tân Sửu <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+          </ol>
+          <div class="spouse-block"><span class="role">Thứ thất:</span> Đào thị Bẹ — Xuân Hòa, Trung Lương</div>
+          <ol class="children">
+            <li>Lê hữu vị vô danh — Kỵ ngày 17-11</li>
+            <li>Lê thị Thư — sinh năm Canh Tuất <span class="married">— lấy chồng Nguyễn văn Xuân, Cư Hoan</span></li>
+          </ol>
+          <div class="spouse-block"><span class="role">Thứ thất:</span> Trần thị Bạch</div>
+          <ol class="children">
+            <li>Lê hữu vị vô danh — Kỵ ngày 24-04</li>
+            <li>Lê vô vị vô danh <span class="note">(bất tri kỵ nhật)</span></li>
+            <li>Lê hữu vị vô danh <span class="note">(bất tri kỵ nhật)</span></li>
+            <li>Lê văn Mậu — sinh năm Mậu Ngọ, Kỵ ngày 13-05 <span class="note">— con của Lê Văn Tùy và Đậu Thị Bẹ; xem nhánh Lê Văn Kiếm</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-nghi">
+          <div class="chi-eyebrow">Con ông Lê văn Thuyết</div>
+          <div class="chi-name">Lê văn Nghị <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Đinh Tỵ</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Lâm thị Kiễng — thôn Thiết Tràng <span class="note">(cải giá)</span></div>
+          <ol class="children">
+            <li>Lê thị Tích — sinh năm Tân Tỵ <span class="married">— lấy chồng Nguyễn văn Thiu, trong thôn</span></li>
+            <li>Lê thị Ngân <span class="married">— trước lấy chồng thôn Định Sơn, sau lấy chồng thôn Bảng Sơn là Trần văn Minh</span></li>
+            <li>Lê văn hữu vị vô danh <span class="note">(bất tri kỵ nhật)</span></li>
+            <li>Lê thị Lục — Kỵ ngày 29-9</li>
+          </ol>
+          <div class="spouse-block"><span class="role">Thứ thất:</span> Hoàng thị Xem — Thượng Nghĩa, Cam Giang</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (9 người)</div>
+          <ol class="children">
+            <li>Lê văn Luân — sinh năm Quý Tỵ <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Kim — sinh năm Ất Mùi <span class="married">— lấy chồng…</span></li>
+            <li>Lê thị Thủy — Kỵ ngày 15-03</li>
+            <li>Lê văn Ngữ — Kỵ ngày 11-11</li>
+            <li>Lê thị Minh Nguyệt — sinh năm Tân Sửu <span class="married">— lấy chồng Nguyễn văn Xuân, trong thôn</span></li>
+            <li>Lê hữu vị vô danh <span class="note">(bất tri kỵ nhật)</span></li>
+            <li>Lê văn Huấn — sinh năm Giáp Thìn <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Hoa (Thu) — sinh năm Bính Ngọ <span class="married">— lấy chồng Nguyễn văn Ánh, thôn Lộc An (sau ly dị, cải giá, có 2 con trai)</span></li>
+            <li>Lê thị Minh Tuyết — sinh năm Tân Hợi <span class="married">— lấy chồng Nguyễn văn Hùng, Tân Lâm, xã Cam Thành</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-tuy-con">
+          <div class="chi-eyebrow">Con ông Lê văn Tặng</div>
+          <div class="chi-name">Lê văn Tuy <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Kỵ ngày 10-12</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Canh — Mai Lộc, Kỵ ngày 04-03</div>
+          <ol class="children">
+            <li>Lê thị Kỷ — Kỵ ngày 29-06</li>
+            <li>Lê văn Thuỳ — sinh năm Nhâm Ngọ <span class="note">(Lê văn Quang Thuỳ) → xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê văn Triều — sinh năm Đinh Hợi <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Trâm — sinh năm Nhâm Thìn <span class="married">— trước lấy chồng Nguyễn văn Khê trong thôn, sau lấy chồng Trần văn Sỏ, người Định Sơn</span></li>
+          </ol>
+        </div>
+
+        <div class="chi-card" id="chi-duy">
+          <div class="chi-eyebrow">Con ông Lê văn Tặng</div>
+          <div class="chi-name">Lê văn Duy <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Canh Ngọ — cư trú tại tỉnh Đắk Lắk</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Thản — Bảng Sơn, mất ngày 27 tháng 11 năm Đinh Hợi</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (8 người)</div>
+          <ol class="children">
+            <li>Lê thị Thành — sinh năm Bính Thân <span class="married">— lấy chồng Nguyễn phi Tứ, xã Thạch Long, Thạch Hà, Hà Tĩnh</span></li>
+            <li>Lê thị Hà — sinh năm Kỷ Hợi <span class="married">— lấy chồng Chu văn Minh, Đức Tường, Đức Thọ, Hà Tĩnh</span></li>
+            <li>Lê văn Tịnh — sinh năm Kỷ Hợi <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Bình — sinh năm Tân Sửu</li>
+            <li>Lê văn Định — sinh năm Giáp Thìn, Kỵ ngày 24-2 <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê văn Lịch — sinh năm Đinh Vi <span class="note">(Lê Thanh Lịch) → xem chi tiết ở Đời thứ Sáu</span></li>
+            <li>Lê thị Lý — sinh năm Tân Hợi <span class="married">— lấy chồng Trần văn Chung, xã Định Tường, Yên Định, Thanh Hoá (cư trú tại Đắk Lắk)</span></li>
+            <li>Lê văn Long — sinh năm Ất Mão <span class="note">→ xem chi tiết ở Đời thứ Sáu</span></li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ĐỜI THỨ SÁU TRỞ VỀ SAU -->
+    <section class="gen-section" id="doi-6">
+      <div class="gen-header">
+        <span class="gen-num">VI+</span>
+        <h2>Đời thứ Sáu và các đời kế tiếp</h2>
+        <span class="gen-note">Chi tiết từng nhánh con cháu</span>
+      </div>
+      <div class="branch-tree">
+
+        <!-- Nhánh Tân (Hòa) -->
+        <div class="chi-card" id="nh-tan-hoa">
+          <div class="chi-eyebrow">Nhánh ông Lê Văn Tân (Hòa) — con ông Lê văn Hàm</div>
+          <div class="chi-name">Lê Văn Tân (Hòa) <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Bính Thân</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Nguyễn Thị Quyệt — trong thôn</div>
+          <ol class="children">
+            <li>Lê Văn Hân — sinh ngày 11-01, Kỷ Mùi (1979)</li>
+            <li>Lê Văn Tâm — sinh ngày 11-10, Tân Dậu (1981)</li>
+            <li>Lê Thị Xão — sinh ngày 01-01, Kỷ Tỵ (1989)</li>
+            <li>Lê Thị Ngôn — sinh ngày 14-04, Nhâm Thân (1992)</li>
+          </ol>
+
+          <div class="descendants">
+            <div class="desc-label">Đời kế tiếp — con cháu ông Tân (Hòa)</div>
+            <div class="branch-tree">
+              <div class="chi-card level-2">
+                <div class="chi-eyebrow">Nhánh ông Lê Văn Hân</div>
+                <div class="chi-name">Lê Văn Hân <span class="tag">chính chủ</span></div>
+                <div class="chi-dates">Sinh ngày 10-10, Kỷ Mùi (1979)</div>
+                <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Nguyễn Thị An — Giáp Tý 1984, trong thôn</div>
+                <ol class="children">
+                  <li>Lê Thị Thùy Trang — sinh năm 2002</li>
+                  <li>Lê Thị Thùy Trinh — sinh Kỷ Sửu 2009</li>
+                  <li>Lê hữu vị vô danh — sinh năm 2000, Canh Thìn</li>
+                  <li>Lê Văn Tú — sinh ngày 15-9-2016, Bính Thân</li>
+                </ol>
+              </div>
+              <div class="chi-card level-2">
+                <div class="chi-eyebrow">Nhánh ông Lê Văn Tâm — con ông Tân (Hòa) và bà Nguyễn Thị Quyệt</div>
+                <div class="chi-name">Lê Văn Tâm <span class="tag">chính chủ</span></div>
+                <div class="chi-dates">Sinh ngày 11-10, Tân Dậu (1981)</div>
+                <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Trần Thị Châu — sinh năm 1985, thôn Bảng Sơn</div>
+                <ol class="children">
+                  <li>Lê Thị Thanh Nhàn — sinh ngày 14-8, Kỷ Sửu (2009)</li>
+                  <li>Lê Văn Khánh — sinh ngày 4-1-2014, Giáp Ngọ</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nhánh Duật -->
+        <div class="chi-card" id="nh-duat">
+          <div class="chi-eyebrow">Nhánh cụ Lê Văn Duật — con cụ Lê Văn Tạ</div>
+          <div class="chi-name">Lê Văn Duật <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Tân Tỵ</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Nguyễn Thị Hòa — Cư Hoan, Kỵ ngày 23-7</div>
+          <ol class="children">
+            <li>Lê Thị Giải (Bình) — sinh năm Giáp Thìn, 15-11 <span class="married">— trước lấy chồng Trần Văn Vinh, Bảng Sơn, sau cải giá</span></li>
+            <li>Lê hữu vị vô danh — Kỵ ngày 19-8</li>
+            <li>Lê hữu vị vô danh — Kỵ ngày 14-11</li>
+            <li>Lê Thị An — sinh ngày 17-3-1972, Nhâm Tý <span class="married">— lấy chồng Nguyễn Văn Lực, trong thôn</span></li>
+            <li>Lê Văn Cư (Hiệp) — sinh ngày 01-01-1977, Bính Thìn</li>
+            <li>Lê Thị Lạc (Hảo) — sinh ngày 18-02-1982, Nhâm Tuất</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Thỉu -->
+        <div class="chi-card" id="nh-thiu">
+          <div class="chi-eyebrow">Con ông Lê văn Tốn</div>
+          <div class="chi-name">Lê Văn Thỉu <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Giáp Ngọ</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn Thị Duyên — trong thôn</div>
+          <div class="descendants" style="margin-top:6px;border-top:none;padding-top:0;">
+            <ol class="children">
+              <li>Lê Văn Sỹ — sinh ngày 24-04-1979, Kỵ Mùi. <span class="married">Vợ: Nguyễn Thị Bắc (Tây Ninh). Sinh hạ: Lê Thị Nhiên, Lê Văn Thiên.</span></li>
+              <li>Lê Thị Dung (Lê Thị Kiếm) — sinh năm 1982</li>
+              <li>Lê Văn Phương — sinh năm 1991</li>
+              <li>Lê Văn An — sinh năm 1998</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Nhánh Sửu -->
+        <div class="chi-card" id="nh-suu">
+          <div class="chi-eyebrow">Con ông Lê văn Tốn</div>
+          <div class="chi-name">Lê Văn Sửu <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh ngày 11-11-1963</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn Thị Căn — sinh ngày 10-06-1965</div>
+          <ol class="children">
+            <li>Lê hữu vị vô danh — Kỵ ngày 01-01</li>
+            <li>Lê Văn Tâm — sinh năm 1985, Kỵ ngày 29-08. <span class="married">Vợ là Lê Thanh Thúy ở Quy Nhơn; sinh hạ: Lê Thị Thanh Thảo (sinh năm 2010).</span></li>
+            <li>Lê Thị Truyền — sinh năm 1987</li>
+            <li>Lê Thị Đạt — sinh năm 1991</li>
+            <li>Lê Văn Đăng — sinh năm 1994. <span class="married">Vợ: Nguyễn Thị Thuần (sinh năm 1994); sinh hạ: Lê Khải Nam (14-09-2013), Lê Nguyên Khôi (12-01-2020).</span></li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Ất -->
+        <div class="chi-card" id="nh-at">
+          <div class="chi-eyebrow">Con ông Lê văn Tốn</div>
+          <div class="chi-name">Lê Văn Ất <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh ngày 01 tháng 11 năm 1965 (Ất Tỵ)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn Thị Hoa — sinh ngày 02 tháng 9 năm 1968 (Mậu Thân)</div>
+          <ol class="children">
+            <li>Lê Thị Phụ — sinh ngày 6-6-1987 <span class="married">— lấy chồng Nguyễn Văn Thành, thôn Thiện Chánh, Cam Thủy</span></li>
+            <li>Lê Thị Thúy — sinh ngày 2-1-1992 <span class="married">— lấy chồng Đoàn Quang Đức, Triệu Thuận, Quảng Trị</span></li>
+            <li>Lê Văn Quý — sinh ngày 2-9-1993. <span class="married">Vợ: Ngô Thị Lợi (sinh 20-02-1993, Định Sơn); sinh hạ: (vô danh, 01-01-2018), Lê Khắc Cường (20-02-2016), (vô danh, 01-01-2018), Lê Khắc Việt (14-02-2020).</span></li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Tảng -->
+        <div class="chi-card" id="nh-tang2">
+          <div class="chi-eyebrow">Con cụ Lê Văn Tùy</div>
+          <div class="chi-name">Lê Văn Tảng <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Mậu Tý, sinh ngày 01-03 (trên giấy tờ)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Nguyễn Thị Chua — trong thôn</div>
+          <ol class="children">
+            <li>Lê Văn Hiển — sinh 10-11-1968, Mậu Thân. <span class="married">Vợ chánh: Nguyễn Thị Hiệp.</span>
+              <br><span class="note">Hậu duệ: Lê Thị Thảo Vy (12-5-1993), Lê Thị Lan Vy (13-10-1995), Lê Văn Anh (16-4-2002, còn gọi Lê Tùng Lâm), Lê hữu vị vô danh (kỵ 16-5 ÂL).</span>
+            </li>
+            <li>Lê Thị Viên (Hoa) — sinh 22-01-1972, Nhâm Tý <span class="married">— lấy chồng Nguyễn Văn Thời, trong thôn</span></li>
+            <li>Lê Thị Hiền — sinh 20-12-1976, Bính Thìn <span class="married">— lấy chồng Trần Văn Bốn, thôn Mai Đàn</span></li>
+            <li>Lê hữu vị vô danh — Kỵ ngày 12-7-1980</li>
+            <li>Lê Văn Hách — sinh 29-5, Tân Dậu (1981). <span class="married">Vợ chánh: Nguyễn Thị Hằng (sinh 21-5-1983).</span>
+              <br><span class="note">Hậu duệ: Lê hữu vị vô danh (kỵ 11-6), Lê hữu vị vô danh (kỵ 15-11), Lê Thị Kim Huệ (17-7-2005), Lê Anh Nam (30-4-2008).</span>
+            </li>
+            <li>Lê hữu vị vô danh — Kỵ ngày 14-3</li>
+            <li>Lê Thị Phương — sinh 17-12, Quý Hợi</li>
+            <li>Lê Thị Hường — sinh 04-04, Mậu Thìn</li>
+            <li>Lê Quang Vinh (Vinh) — sinh 20-11, Canh Ngọ. <span class="married">Vợ chánh: Lê Thị Lịch, thôn Hoàn Cát.</span> <span class="note">(Con cái: chưa điền)</span></li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Hùng -->
+        <div class="chi-card" id="nh-hung">
+          <div class="chi-eyebrow">Con cụ Lê Văn Tùy</div>
+          <div class="chi-name">Lê Văn Hùng <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Canh Dần</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Nguyễn Thị Lịch — trong thôn</div>
+          <ol class="children">
+            <li>Lê Thị Lãm — sinh 28-9, Canh Tuất <span class="married">— lấy chồng Trần Văn Linh, thôn Quất Xá</span></li>
+            <li>Lê Văn Linh — sinh 14-5, Nhâm Tý</li>
+            <li>Lê Văn Chủng — sinh năm Bính Thìn</li>
+            <li>Lê Thị Quế — sinh 25-11, Mậu Ngọ <span class="married">— lấy chồng</span></li>
+            <li>Lê Thị Huế — sinh 28-12, Nhâm Tuất</li>
+          </ol>
+
+          <div class="descendants">
+            <div class="desc-label">Đời kế tiếp — con cháu ông Hùng</div>
+            <div class="branch-tree">
+              <div class="chi-card level-2">
+                <div class="chi-eyebrow">Con ông Lê Văn Hùng và bà Nguyễn Thị Lịch</div>
+                <div class="chi-name">Lê Văn Linh <span class="tag">chính chủ tiểu nhánh</span></div>
+                <div class="chi-dates">Sinh ngày 14-5, Nhâm Tý</div>
+                <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Phan Thị Hương — thôn Quật Xá</div>
+                <ol class="children">
+                  <li>Lê Thị Thảo — sinh 24-01-1995, Ất Hợi <span class="married">— lấy chồng Nguyễn Đại Sơn, thôn Hoàn Cát</span></li>
+                  <li>Lê Thị Thủy — sinh 14-6-1996, Bính Tý</li>
+                  <li>Lê Thị Thúy — sinh 29-9, Giáp Thân (tức 11-11-2004)</li>
+                  <li>Lê Thị Phương Thanh — sinh 15-3, Kỷ Sửu (tức 09-04-2009)</li>
+                </ol>
+              </div>
+              <div class="chi-card level-2">
+                <div class="chi-eyebrow">Con ông Lê Văn Hùng</div>
+                <div class="chi-name">Lê Văn Chủng <span class="tag">chính chủ</span></div>
+                <div class="chi-dates">Sinh năm Bính Thìn</div>
+                <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Lê Thị Loan — Trung Chỉ, Cam Chính</div>
+                <ol class="children">
+                  <li>Lê Văn Đức — sinh 4-8, Nhâm Ngọ (2002)</li>
+                  <li>Lê Văn Dũng — sinh 22-11, Đinh Hợi (2007)</li>
+                  <li>Lê vô vị vô danh — Kỵ năm 2008</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nhánh Mạnh -->
+        <div class="chi-card" id="nh-manh">
+          <div class="chi-eyebrow">Con ông Lê Văn Tùy</div>
+          <div class="chi-name">Lê Văn Mạnh <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Ất Mùi (căn cước ghi 22-12-1954)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Mai Thị Cúc — sinh năm Mậu Tuất (căn cước ghi 12-07-1958), thôn Định Sơn</div>
+          <ol class="children">
+            <li>Lê Văn Nhật — sinh 19-5 Nhâm Tuất (tức 09-07-1982; căn cước ghi 27-07-1982)</li>
+            <li>Lê Văn Anh — sinh 18-7-1984, Giáp Tý (căn cước ghi 19-05-1985)</li>
+            <li>Lê Thị Nga — sinh 24-12-1987, Bính Dần</li>
+          </ol>
+
+          <div class="descendants">
+            <div class="desc-label">Đời kế tiếp — con ông Mạnh</div>
+            <div class="branch-tree">
+              <div class="chi-card level-2">
+                <div class="chi-name">Lê Phúc Nhật <span class="tag">chính chủ</span></div>
+                <div class="chi-dates">Sinh 19-5 Nhâm Tuất (CCCD ghi 27-07-1982)</div>
+                <div class="spouse-block"><span class="role">Vợ chánh:</span> Võ Thị Niềm — sinh năm 1984, Giáp Tý</div>
+                <ol class="children">
+                  <li>Lê Thị Viên — sinh năm 2006 (Bính Tuất), Kỵ ngày 5-7</li>
+                  <li>Lê Thị hữu vị vô danh — Kỵ ngày 4-3</li>
+                  <li>Lê Thị Đan — sinh ngày 24-5-2009</li>
+                  <li>Lê Thị Nhân — sinh ngày 01-03-2017</li>
+                </ol>
+              </div>
+              <div class="chi-card level-2">
+                <div class="chi-name">Lê Văn Anh <span class="tag">con ông Mạnh</span></div>
+                <div class="chi-dates">Sinh 18-7-1984, Giáp Tý (căn cước ghi 19-05-1985)</div>
+                <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn Thị Linh — con ông Nguyễn Văn Lam, Bảng Sơn</div>
+                <ol class="children">
+                  <li>Lê Gia Bảo — sinh ngày 12-02-2012</li>
+                  <li>Lê Thị Yến Nhi — sinh ngày 9-8, Quý Tỵ</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nhánh Duận -->
+        <div class="chi-card" id="nh-duan">
+          <div class="chi-eyebrow">Con ông Lê Văn Tùy</div>
+          <div class="chi-name">Lê Văn Duận <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Tân Sửu (1961)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cụ bà Nguyễn Thị Lịch — sinh năm Tân Sửu 1961, thôn Định Lập (Định Sơn)</div>
+          <ol class="children">
+            <li>Lê Thị Phượng — sinh 28-8 năm Ất Sửu, khai sinh 12-10-1985 <span class="married">— lấy chồng thôn Cam Vũ, Cam Lộ, tên Nguyễn Văn Đại</span></li>
+            <li>Lê Thị Phước — sinh 20-7 năm Đinh Mão, khai sinh 20-10-1987 <span class="married">— lấy chồng tại Cam Nghĩa, tên Trương Công Vinh</span></li>
+            <li>Lê Văn Phong — sinh 01-10 Canh Ngọ. <span class="married">Vợ: Lê Thị Phương Thảo (sinh 1993, Quý Dậu), Cẩm Lệ, Đà Nẵng.</span>
+              <br><span class="note">Con: Lê Tuệ Lâm (nữ, 10-10-2020), Lê Nhật Khang (nam, 16-6 nhuận Ất Tỵ, tức 09-08-2025).</span>
+            </li>
+            <li>Lê Văn Phú — sinh 04-10 Giáp Tuất (khai sinh: Lê Hoài Phú, 04-10-1994). <span class="married">Vợ: Nguyễn Thị Mỹ Hạnh (sinh 03-6-1994, Sơn Nam, Cam Chính).</span>
+              <br><span class="note">Con: Lê Hoài Mỹ (nữ, 04-06-2018), Lê Hoài Nhơn (21-9 ÂL, tức 16-10-2022), Lê Nghĩa (01-6 Ất Tỵ, tức 25-6-2025).</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Kiếm -->
+        <div class="chi-card" id="nh-kiem">
+          <div class="chi-eyebrow">Con trai thứ của ông Lê Văn Tùy và bà Đậu Thị Bẹ</div>
+          <div class="chi-name">Lê Văn Kiếm <span class="tag">chính chủ</span></div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Cao Thị Lan</div>
+          <ol class="children">
+            <li>Lê Thị Lâm — sinh ngày 10-07-1990 (Canh Ngọ)</li>
+            <li>Lê Văn Sơn — sinh ngày 25-03-1993 (Quý Dậu)</li>
+            <li>Lê Văn Hà — sinh ngày 23-02-1998 (Mậu Dần)</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Luân -->
+        <div class="chi-card" id="nh-luan">
+          <div class="chi-eyebrow">Con ông Lê văn Nghị</div>
+          <div class="chi-name">Lê văn Luân <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Quý Tỵ</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Lê thị Dời — Cư Hoan, Hải Thiện</div>
+          <ol class="children">
+            <li>Lê văn Phúc — sinh 16-6-1979, Kỷ Mùi, Kỵ ngày 21-8</li>
+            <li>Lê văn Hồng Lân — sinh 23-8-1981, Tân Dậu</li>
+            <li>Lê thị Hồng Loan — sinh 12-4-1983, Quý Hợi</li>
+            <li>Lê văn Hồng Linh — sinh 01-01-1985, Ất Sửu, Kỵ ngày 28-7</li>
+            <li>Lê thị Hồng Oanh — sinh 05-08-1991, Tân Mùi</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Huấn -->
+        <div class="chi-card" id="nh-huan">
+          <div class="chi-eyebrow">Con ông Lê văn Nghị</div>
+          <div class="chi-name">Lê văn Huấn <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Giáp Thìn</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Lê thị Trang — thôn Trung Chỉ, Triệu Phong</div>
+          <ol class="children">
+            <li>Lê thị Minh Tuyền — sinh ngày 04-03-1990</li>
+            <li>Lê văn Hiến — sinh ngày 07-6-1991</li>
+            <li>Lê văn Biên — sinh ngày 17-7-1994</li>
+            <li>Lê vô vị vô danh — sinh ngày 11-12-1997</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Quang Thuỳ -->
+        <div class="chi-card" id="nh-quangthuy">
+          <div class="chi-eyebrow">Con ông Lê văn Tuy</div>
+          <div class="chi-name">Lê văn Quang Thuỳ <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Nhâm Ngọ</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Thanh Hồng — Tân Định, Cam Lộ</div>
+          <ol class="children">
+            <li>Lê thị Thanh Vân — sinh 27-8-1964, Giáp Thìn <span class="married">— lấy chồng Nguyễn văn Niệm, Ba Thung, Cam Lộ</span></li>
+            <li>Lê thị Thanh Tú — sinh 12-3-1966, Bính Ngọ <span class="married">— lấy chồng Huỳnh văn Đồng, Sơn Tịnh, Quảng Ngãi</span></li>
+            <li>Lê văn Quang Lân — sinh 15-4-1968, Mậu Thân</li>
+            <li>Lê văn Quang Lâm — sinh 13-6-1970, Canh Tuất</li>
+            <li>Lê thị Thanh Tâm — sinh 20-8-1972, Nhâm Tý <span class="married">— lấy chồng…</span></li>
+            <li>Lê thị Thanh Lương — sinh 19-3-1975, Ất Mão</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Triều -->
+        <div class="chi-card" id="nh-trieu">
+          <div class="chi-eyebrow">Con ông Lê văn Tuy</div>
+          <div class="chi-name">Lê văn Triều <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Đinh Hợi (1947)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Phan thị Lẽn — Tân Phổ, Kỵ ngày 05-10</div>
+          <div class="spouse-block"><span class="role">Vợ kế:</span> Nguyễn thị Hoa — Cư Hoan</div>
+          <div class="children-label">Sinh hạ Nam – Nữ (7 người)</div>
+          <ol class="children">
+            <li>Lê thị Thắm — sinh 28-01-1978, Mậu Ngọ <span class="married">— lấy chồng Võ văn Thơ, người Định Sơn</span></li>
+            <li>Lê thị Hoài — Kỵ ngày 02-6</li>
+            <li>Lê thị hữu vị vô danh — Kỵ ngày 23-6</li>
+            <li>Lê thị Hướng — sinh 01-5, Quý Hợi (1983) <span class="married">— lấy chồng Nguyễn văn Minh, trong thôn</span></li>
+            <li>Lê thị Hạnh — sinh 23-5, Bính Dần (1986) <span class="married">— chồng Nguyễn văn Sơn (chồng thị: Trần Dương Minh Châu, Tây Ninh)</span></li>
+            <li>Lê thị Phúc — sinh 23-12, Mậu Thìn (1988)</li>
+            <li>Lê văn Quyền — sinh 12-02, Nhâm Thân (1992)</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Tịnh -->
+        <div class="chi-card" id="nh-tinh">
+          <div class="chi-eyebrow">Con ông Lê văn Duy</div>
+          <div class="chi-name">Lê văn Tịnh <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Kỷ Hợi (1959)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Nguyễn thị Bảy — xã Nghĩa Dũng, Tân Kỳ, Nghệ Tĩnh</div>
+          <ol class="children">
+            <li>Lê văn Hùng — sinh năm Ất Sửu (1985)</li>
+            <li>Lê thị Trang — sinh ngày 06-6, Tân Mùi (1991)</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Định -->
+        <div class="chi-card" id="nh-dinh">
+          <div class="chi-eyebrow">Con ông Lê văn Duy</div>
+          <div class="chi-name">Lê văn Định <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Giáp Thìn (1964)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Trần thị Phi — sinh năm Bính Ngọ (1966), quê xã Thạch Quý, huyện Thạch Hà, Hà Tĩnh</div>
+          <ol class="children">
+            <li>Lê văn Dũng — sinh năm Kỷ Tỵ (1989)</li>
+            <li>Lê văn Hiếu — sinh ngày 07-9, Quý Dậu (1993)</li>
+            <li>Lê văn Thảo — sinh ngày 03-7, Ất Hợi (1995)</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Thanh Lịch -->
+        <div class="chi-card" id="nh-thanhlich">
+          <div class="chi-eyebrow">Con ông Lê văn Duy</div>
+          <div class="chi-name">Lê Thanh Lịch <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Đinh Mùi (1967)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> Lữ Thị Khuyên — sinh năm Canh Tuất (1970), huyện Tĩnh Gia, Thanh Hóa — cư trú tại Krông Ana, Đắk Lắk</div>
+          <ol class="children">
+            <li>Lê văn Đông — sinh năm Canh Ngọ (1990)</li>
+            <li>Lê văn Vũ — sinh ngày 25-10, Ất Hợi (1995)</li>
+          </ol>
+        </div>
+
+        <!-- Nhánh Long -->
+        <div class="chi-card" id="nh-long">
+          <div class="chi-eyebrow">Con ông Lê văn Duy</div>
+          <div class="chi-name">Lê văn Long <span class="tag">chính chủ</span></div>
+          <div class="chi-dates">Sinh năm Ất Mão (1975)</div>
+          <div class="spouse-block"><span class="role">Vợ chánh:</span> <span class="no-info">(chưa ghi)</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      Gia phả được biên soạn lại trên cơ sở bản ghi chép gốc lập ngày 15 tháng 9 năm Mậu Ngọ (1978).<br>
+      Kính mong con cháu các đời sau tiếp tục bổ sung, gìn giữ và lưu truyền.
+    </footer>
+
+  </template>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const HAN=['','一','二','三','四','五','六','七'];
+const ROM=['','I','II','III','IV','V','VI','VII'];
+const VN=['','Nhất','Hai','Ba','Tư','Năm','Sáu','Bảy'];
+const CN='<i class="cn tl"></i><i class="cn tr_"></i><i class="cn bl"></i><i class="cn br"></i>';
+
+/* ---------- 1. đọc dữ liệu từ bản gia phả gốc ---------- */
+const src=$('#src').content;
+const clean=t=>t.replace(/\s+/g,' ').trim();
+const cards=[]; const byId={};
+let seq=0;
+function readCard(el,gen,parent,secId){
+  const c={uid:'c'+(seq++),gen,parent,srcId:el.id||'',eyebrow:'',names:[],tag:'',dates:'',houses:[],kids:[],el};
+  let cur=null;
+  const mkHouse=()=>{cur={spouse:null,label:'',items:[]};c.houses.push(cur);return cur;};
+  [...el.children].forEach(ch=>{
+    if(ch.classList.contains('chi-eyebrow')) c.eyebrow=clean(ch.textContent);
+    else if(ch.classList.contains('chi-name')){
+      const t=ch.querySelector('.tag'); let tag=''; if(t){tag=clean(t.textContent);t.remove();}
+      c.names.push({n:clean(ch.textContent),tag});
+      if(tag&&!c.tag&&c.names.length===1) c.tag=tag; else if(tag&&c.names.length>1) c.names[c.names.length-1].tag=tag;
+    }
+    else if(ch.classList.contains('chi-dates')) c.dates=clean(ch.innerHTML.replace(/<span class="note">/g,'<span class="note">'));
+    else if(ch.classList.contains('spouse-block')){
+      const r=ch.querySelector('.role'); const role=r?clean(r.textContent).replace(/:$/,''):'';
+      if(r)r.remove(); const h=mkHouse(); h.spouse={role,html:ch.innerHTML.trim()};
+    }
+    else if(ch.classList.contains('children-label')){ (cur&&!cur.items.length?cur:mkHouse()).label=clean(ch.textContent); }
+    else if(ch.tagName==='OL'){ (cur&&!cur.items.length?cur:mkHouse()).items.push(...[...ch.children].map(li=>li)); }
+    else if(ch.classList.contains('descendants')){
+      ch.querySelectorAll(':scope .branch-tree > .chi-card').forEach(sub=>{c.kids.push(readCard(sub,gen+1,c,secId));});
+      ch.querySelectorAll(':scope > ol.children').forEach(ol=>{ (cur&&!cur.items.length?cur:mkHouse()).items.push(...[...ol.children]); });
+    }
+  });
+  c.houses.forEach(h=>{ if(h.items.length&&!h.label) h.label=''; });
+  cards.push(c); if(c.srcId) byId[c.srcId]=c; return c;
+}
+const SEC={'doi-1':1,'doi-2':2,'doi-3':3,'doi-4':4,'doi-5':5,'doi-6':6};
+const secMeta={};
+const topCards=[];
+src.querySelectorAll('section.gen-section').forEach(sec=>{
+  const g=SEC[sec.id]; const h2=sec.querySelector('.gen-header h2'); const nt=sec.querySelector('.gen-note');
+  secMeta[g]={title:h2?clean(h2.textContent):'',note:nt?clean(nt.textContent):''};
+  sec.querySelectorAll(':scope .branch-tree > .chi-card').forEach(el=>{
+    if(el.closest('.descendants'))return; topCards.push(readCard(el,g,null,sec.id));
+  });
+});
+/* cây cha–con giữa các thế hệ */
+const PAR={'doi2':null};
+const parentOf={ 'chi-can':null };
+function link(childId,parentId){const c=byId[childId],p=byId[parentId]; if(c&&p){c.parent=p;}}
+const gen1=cards.find(c=>c.gen===1&&!c.parent), gen2=cards.find(c=>c.gen===2), gen3=cards.find(c=>c.gen===3);
+if(gen2) gen2.parent=gen1; if(gen3) gen3.parent=gen2;
+['chi-can','chi-thuyet','chi-tang'].forEach(i=>{if(byId[i])byId[i].parent=gen3;});
+[['chi-ham','chi-can'],['chi-ta','chi-can'],['chi-ton','chi-can'],['chi-tuy2','chi-can'],['chi-nghi','chi-thuyet'],['chi-tuy-con','chi-tang'],['chi-duy','chi-tang'],
+ ['nh-tan-hoa','chi-ham'],['nh-duat','chi-ta'],['nh-thiu','chi-ton'],['nh-suu','chi-ton'],['nh-at','chi-ton'],
+ ['nh-tang2','chi-tuy2'],['nh-hung','chi-tuy2'],['nh-manh','chi-tuy2'],['nh-duan','chi-tuy2'],['nh-kiem','chi-tuy2'],
+ ['nh-luan','chi-nghi'],['nh-huan','chi-nghi'],['nh-quangthuy','chi-tuy-con'],['nh-trieu','chi-tuy-con'],
+ ['nh-tinh','chi-duy'],['nh-dinh','chi-duy'],['nh-thanhlich','chi-duy'],['nh-long','chi-duy']].forEach(a=>link(a[0],a[1]));
+cards.forEach(c=>{c.children=[];}); cards.forEach(c=>{if(c.parent)c.parent.children.push(c);});
+cards.forEach(c=>{c.main=c.names[0]?c.names[0].n.replace(/\s*—.*$/,''):'';});
+cards.forEach(c=>{ if(c.gen===1) c.main='Tằng Tổ Khảo & Tằng Tổ Tỷ'; });
+const norm=s=>s.toLowerCase().replace(/\s+/g,' ');
+
+/* ---------- 2. dựng trang ---------- */
+const slides=[]; // {html,cls,title,group,search,uid}
+const cardSlide={};
+function addSlide(o){o.i=slides.length;slides.push(o);return o;}
+const foot=(label,n)=>`<div class="foot"><span>Gia Phả Họ Lê</span><span class="mid"></span><b>${esc(label)}</b><span class="mid"></span><span>Trang ${n}</span></div>`;
+
+/* Bìa */
+const coverEl=null;
+addSlide({cls:'cover',title:'Bìa — Gia Phả Họ Lê',group:'Mở đầu',html:`
+ <div class="sl cover">${CN}
+  <svg class="drum" viewBox="-100 -100 200 200" fill="none" stroke="#E0C57A" stroke-width=".6">
+   ${[96,88,80,70,60,48,36,24,12].map(r=>`<circle r="${r}"/>`).join('')}
+   ${Array.from({length:48},(_,k)=>{const a=k*Math.PI*2/48;return `<line x1="${Math.cos(a)*70}" y1="${Math.sin(a)*70}" x2="${Math.cos(a)*80}" y2="${Math.sin(a)*80}"/>`}).join('')}
+   ${Array.from({length:16},(_,k)=>{const a=k*Math.PI*2/16;return `<path d="M0 0L${Math.cos(a-.12)*34} ${Math.sin(a-.12)*34}L${Math.cos(a+.12)*34} ${Math.sin(a+.12)*34}Z" />`}).join('')}
+  </svg>
+  <div class="vcol l">慎終追遠 · 民德歸厚</div><div class="vcol r">飲水思源 · 木本水源</div>
+  <div class="cv">
+   <div class="qh">Cộng hòa Xã hội Chủ nghĩa Việt Nam</div><div class="kh">Độc lập – Tự do – Hạnh phúc</div>
+   <div class="zp">族 譜</div>
+   <h1>Gia Phả Họ Lê</h1>
+   <p class="sub">Chi phái khởi nguồn tại Gio Linh, tổng An Bình, phường Long Sơn — định cư tại Cam Lộ, tổng Mai Lộc, tỉnh Quảng Trị</p>
+   <div class="meta"><div><span>Bản gốc lập ngày</span><b>15 tháng 9 năm Mậu Ngọ (1978)</b></div><div><span>Nguyên quán</span><b>Gio Linh · An Bình · Long Sơn</b></div><div><span>Phạm vi biên soạn</span><b>Đời thứ Nhất — đời thứ Bảy</b></div></div>
+   <div class="hint">Dùng phím ← → hoặc bấm “Tiếp” để lật trang</div>
+  </div></div>`});
+
+/* Khởi nguồn */
+const oe=src.querySelector('section.origin'); const ops=[...oe.querySelectorAll('p')].map(p=>p.innerHTML);
+addSlide({title:'Khởi nguồn Thủy Tổ',group:'Mở đầu',html:`
+ <div class="sl">${CN}<div class="sh"><div class="eb">Nguồn cội</div><h2>Khởi nguồn Thủy Tổ</h2><div class="rule"></div></div>
+ <div class="body"><div class="origin">
+  <div class="orb"><div class="n">始</div><h3>Nguyên tiên Thủy Tổ</h3><p>${ops[0]||''}</p></div>
+  <div class="orb"><div class="n">墓</div><h3>Phần mộ Thủy Tổ</h3><p>${ops[1]||''}</p></div>
+  <div class="orb"><div class="n">遷</div><h3>Di cư lập nghiệp</h3><p>${ops[2]||''}</p></div>
+ </div></div>@@FOOT@@</div>`});
+
+/* Phả hệ tổng quan (chèn sau) */
+const overviewSlot=addSlide({title:'Phả hệ tổng quan',group:'Mở đầu',html:'@@OV@@'});
+const statsSlot=addSlide({title:'Thống kê dòng họ',group:'Mở đầu',html:'@@ST@@'});
+
+/* phân loại giới tính + định dạng mục con */
+function fmtItem(li,card){
+  const nodes=[...li.childNodes]; let head='',tail=[]; let done=false;
+  nodes.forEach(n=>{
+    if(!done&&n.nodeType===3){head+=n.textContent;done=true;}
+    else if(!done&&n.nodeType===1&&n.tagName==='SPAN'&&!n.className){head+=n.textContent;}
+    else tail.push(n);
+  });
+  head=head.replace(/\s+/g,' ').trim();
+  let name=head,meta='';
+  const m=head.match(/^(.*?)\s+[—–]\s+(.*)$/);
+  if(m){name=m[1];meta=m[2];}
+  else { const m2=head.match(/^(.*?)\s*\((vô tự|vô danh)\)\s*$/i); if(m2){name=m2[1];meta='';tail.unshift(null);} }
+  name=name.replace(/\s*[.,]$/,'');
+  meta=meta.replace(/[.,;\s]+$/,'');
+  const sex=/^Lê\s+(thị|Thị)\b/.test(name)?'f':/^Lê\s+(văn|Văn|hữu|Hữu|Quang|Phúc|Thanh|Gia|Khải|Nguyên|Khắc|Hoài|Nghĩa|Tuệ|Nhật|Anh)\b/.test(name)&&!/Lê\s+Thị/.test(name)?'m':'';
+  const sx=/^Lê\s+thị/i.test(name)?'f':/^Lê\s+(văn|hữu|vô)/i.test(name)||/^Lê\s+[A-ZĐ]\p{L}+\s/u.test(name)&&!/thị/i.test(name)?'m':'';
+  const kyfy=t=>esc(t).replace(/(Kỵ ngày [\d\-–\/ ]+(?:ÂL)?|Kỵ năm \d+)/g,'<b class="ky">$1</b>');
+  let extra='';
+  tail.forEach(n=>{ if(!n)return;
+    if(n.nodeType===1&&n.tagName==='SPAN'){
+      const cl=n.className==='married'?'mr':(n.className==='note'?'nt':'');
+      const t=clean(n.textContent).replace(/^[—–]\s*/,'');
+      if(t) extra+=`<span class="${cl||'mr'}">${esc(t)}</span>`;
+    } else if(n.nodeType===3){ const t=clean(n.textContent).replace(/^[—–.\s]+/,''); if(t) extra+=`<span class="mr">${esc(t)}</span>`; }
+  });
+  const full=clean(li.textContent).toLowerCase();
+  let target=null;
+  if(/xem chi tiết|xem nhánh/.test(full)){
+    target=cards.find(c=>c.gen>=6&&c!==card&&c.main&&full.includes(norm(c.main)));
+  }
+  return {name,meta,extra,sx,target,kyfy};
+}
+
+/* thống kê giới */
+let tot={items:0,m:0,f:0,spouses:0,heads:cards.length};
+function personSlide(c){
+  const kidsLi=c.houses.reduce((a,h)=>a.concat(h.items),[]);
+  let nm=0,nf=0; kidsLi.forEach(li=>{const f=fmtItem(li,c); tot.items++; if(f.sx==='m'){nm++;tot.m++;} else if(f.sx==='f'){nf++;tot.f++;}});
+  tot.spouses+=c.houses.filter(h=>h.spouse).length;
+  const names=c.names.map((n,i)=>`<div class="nm">${esc(n.n.replace(/\s*—.*$/,''))}${i>0&&n.tag?'':''}</div>`).join('');
+  const extraTag=c.names.map(n=>n.tag).filter(Boolean)[0]||'';
+  const gnum=Math.min(c.gen,7);
+  const dates=c.dates?`<div class="dt">${c.dates.replace(/<span class="note">/g,'<span style="opacity:.8">')}</div>`:'';
+  const parentLink=c.parent?`<div class="lk" data-go="${c.parent.uid}">↰ Con của: ${esc(c.parent.main)}</div>`:'';
+  const houses=c.houses.map(h=>{
+    const lis=h.items.map(li=>{
+      const f=fmtItem(li,c);
+      const nmHtml=f.target?`<span class="nmx" data-go="${f.target.uid}" title="Xem chi tiết">${esc(f.name)}</span><span class="go" data-go="${f.target.uid}">xem nhánh →</span>`:`<span class="nmx">${esc(f.name)}</span>`;
+      const mt=f.meta?` <span class="mt">— ${f.kyfy(f.meta)}</span>`:'';
+      return `<li class="${f.sx}${f.target?' lk':''}">${nmHtml}${mt}${f.extra.replace(/xem chi tiết ở Đời thứ Sáu/g,'').replace(/→\s*<\/span>/g,'</span>')}</li>`;
+    }).join('');
+    const cols=h.items.length>=14?3:(h.items.length>=5?2:1);
+    const sp=h.spouse?`<div class="sp_"><span class="rl">${esc(h.spouse.role||'Phối ngẫu')}</span><span>${h.spouse.html.replace(/<span class="note">/g,'<em>').replace(/<\/span>/g,'</em>')}</span></div>`:'';
+    const lab=h.label&&lis?`<div class="kl">${esc(h.label)}</div>`:'';
+    return `<div class="hh_">${sp}${lab}${lis?`<ul class="kids" style="--cols:${cols}">${lis}</ul>`:(h.spouse?'':'')}</div>`;
+  }).join('') || '<div class="hh_"><div class="empty">Chưa có thông tin ghi chép về vợ con.</div></div>';
+  const subs=c.kids.length?`<div class="subs"><span class="ovlabel">Đời kế tiếp</span>${c.kids.map(k=>`<span class="pill sm" data-go="${k.uid}">${esc(k.main)}</span>`).join('')}</div>`:'';
+  const genRoman=ROM[gnum];
+  const html=`<div class="sl">${CN}<div class="wm" style="right:3cqw;bottom:2cqw;font-size:34cqw">${HAN[gnum]||''}</div>
+   <div class="sh"><div class="eb">Đời thứ ${VN[gnum]} · ${esc(c.gen>=6?'Chi tiết nhánh':'Chi hệ')}</div><h2>${esc(c.main)}</h2><div class="rule"></div></div>
+   <div class="body"><div class="pgrid">
+    <aside class="tablet"><div class="gh">${HAN[gnum]||''}</div>
+      <div class="ey">${esc(c.eyebrow||'Chi hệ')}</div>${names}
+      ${extraTag?`<span class="tg">${esc(extraTag)}</span>`:''}${dates}
+      <div class="st"><div><b>${kidsLi.length}</b><span>Con cái</span></div><div><b>${nm}</b><span>Nam</span></div><div><b>${nf}</b><span>Nữ</span></div></div>
+      ${parentLink}
+    </aside>
+    <div class="pr">${houses}${subs}</div>
+   </div></div>@@FOOT@@</div>`;
+  const s=addSlide({title:c.main,group:'Đời '+ROM[gnum],uid:c.uid,html,card:c,
+    search:[c.main,c.eyebrow,...kidsLi.map(li=>clean(li.textContent)),...c.houses.filter(h=>h.spouse).map(h=>clean(h.spouse.html.replace(/<[^>]+>/g,' ')))].join(' | ').toLowerCase()});
+  cardSlide[c.uid]=s;
+  c.kids.forEach(personSlide);
+}
+
+/* các đời — sắp thứ tự theo đời */
+const gensPresent=[1,2,3,4,5,6];
+gensPresent.forEach(g=>{
+  const list=topCards.filter(c=>c.gen===g);
+  const meta=secMeta[g]||{};
+  const heads=list.map(c=>`<span data-gohead="${c.uid}">${esc(c.main)}</span>`).join('');
+  const t=meta.title||('Đời thứ '+VN[g]);
+  const parts=t.split('—'); const mainTitle=(g===6?'Đời thứ Sáu & các đời kế tiếp':parts[0].trim());
+  const sub=(g===6?'Chi tiết từng nhánh con cháu':(parts.slice(1).join('—').trim()));
+  addSlide({cls:'gen',title:'Đời thứ '+VN[g]+(sub?' — '+sub:''),group:'Đời '+ROM[g],gen:g,html:`
+   <div class="sl gen">${CN}<div class="g1">
+     <div class="hh">第${HAN[g]}世</div><div class="rn">Thế hệ thứ ${ROM[g]}</div>
+     <h2>${esc(mainTitle)}</h2>${sub?`<div class="nt">${esc(sub)}</div>`:''}${meta.note?`<div class="nt" style="font-size:calc(var(--u)*1.2);opacity:.7">${esc(meta.note)}</div>`:''}
+     <div class="ln"></div><div class="heads">${heads}</div></div>@@FOOT@@</div>`});
+  list.forEach(personSlide);
+});
+
+/* Kết */
+addSlide({cls:'end',title:'Lời nguyện cuối',group:'Kết',html:`
+ <div class="sl end">${CN}<div class="cv">
+  <div class="zp">木 本 水 源</div>
+  <p class="sub">Gia phả được biên soạn lại trên cơ sở bản ghi chép gốc lập ngày 15 tháng 9 năm Mậu Ngọ (1978).<br>Kính mong con cháu các đời sau tiếp tục bổ sung, gìn giữ và lưu truyền.</p>
+  <div class="btns"><button data-act="first">↺ Về trang bìa</button><button data-act="print">In gia phả</button><button data-act="tree">Xem phả đồ</button></div>
+ </div>@@FOOT@@</div>`});
+
+/* Tổng quan */
+(function(){
+  const c3=gen3, ch=gen3?gen3.children:[];
+  const row=(g,html,last)=>`<div class="ovrow"><div class="ovg"><b>${HAN[g]}</b>Đời ${ROM[g]}</div><div class="ovn${last?' last':''}">${html}</div></div>`;
+  const pill=(c,sm)=>`<span class="pill${sm?' sm':''}" data-go="${c.uid}">${esc(c.main)}</span>`;
+  const cols=ch.map(c=>`<div class="ovc"><h4 data-go="${c.uid}">${esc(c.main)}</h4>${c.children.map(k=>`<div class="g5"><span class="pill sm" data-go="${k.uid}">${esc(k.main)}</span>${k.children.length?`<div class="g6">${k.children.map(z=>`<span class="chip" data-go="${z.uid}">${esc(z.main)}</span>`).join('')}</div>`:''}</div>`).join('')||'<span class="more">—</span>'}</div>`).join('');
+  overviewSlot.html=`<div class="sl">${CN}<div class="sh"><div class="eb">Phả đồ thu gọn</div><h2>Phả hệ tổng quan</h2><div class="rule"></div></div>
+   <div class="body"><div class="ov">
+    ${row(1,`<span class="pill" data-go="${gen1.uid}">Tằng Tổ Khảo &amp; Tằng Tổ Tỷ</span><span class="more" style="font-size:calc(var(--u)*1);color:var(--ink2);font-style:italic">sinh hạ 5 người con</span>`)}
+    ${row(2,pill(gen2))}${row(3,pill(gen3),0)}
+    <div class="ovlabel">Đời IV — V · Ba chi hệ con ông Lê văn Nguyên</div>
+    <div class="ovcols">${cols}</div>
+   </div></div>@@FOOT@@</div>`;
+})();
+
+/* Thống kê */
+(function(){
+  const gensN=7;
+  const recorded=tot.items;
+  statsSlot.html=`<div class="sl">${CN}<div class="sh"><div class="eb">Tổng hợp từ bản ghi chép</div><h2>Dòng họ qua những con số</h2><div class="rule"></div></div>
+   <div class="body"><div class="stats">
+    <div class="stc"><div class="v" data-n="${gensN}">0</div><div class="l">Thế hệ</div><div class="d">Đời thứ Nhất đến đời thứ Bảy</div></div>
+    <div class="stc"><div class="v" data-n="${cards.length}">0</div><div class="l">Hồ sơ chi nhánh</div><div class="d">Mỗi chính chủ một trang riêng</div></div>
+    <div class="stc"><div class="v" data-n="${recorded}">0</div><div class="l">Mục con cháu</div><div class="d">Nam ${tot.m} · Nữ ${tot.f}</div></div>
+    <div class="stc"><div class="v" data-n="${tot.spouses}">0</div><div class="l">Phối ngẫu ghi nhận</div><div class="d">Vợ chánh, vợ kế, thứ thất</div></div>
+    <div class="stnote">“Uống nước nhớ nguồn” — con số chỉ là dấu mốc, điều quý là sự nối tiếp.</div>
+   </div></div>@@FOOT@@</div>`;
+})();
+
+/* chèn chân trang */
+slides.forEach((s,i)=>{ s.html=s.html.replace('@@FOOT@@',(s.cls==='cover'?'':foot(s.group,String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')))); });
+
+/* ---------- 3. render ---------- */
+const stage=$('#stage'), book=$('#book');
+function build(host,mode){
+  host.innerHTML=slides.map((s,i)=>`<section class="slide${s.cls?' '+s.cls:''}" data-i="${i}" ${mode==='book'?'id="b'+i+'"':''}>${s.html}</section>`).join('');
+}
+build(stage,'deck'); build(book,'book');
+const deckEls=[...stage.children];
+let cur=0, view='deck';
+const N=slides.length;
+
+/* fit chữ: giảm cỡ khi nội dung tràn */
+function fit(slideEl){
+  if(innerWidth<=820)return;
+  slideEl.querySelectorAll('.body').forEach(b=>{
+    b.style.removeProperty('--k');
+    const targets=[b.querySelector('.pr'),b.querySelector('.origin'),b.querySelector('.ov'),b];
+    let f=1;
+    const over=()=>{ const p=b.querySelector('.pr'); if(p&&p.scrollHeight>p.clientHeight+1)return true; return b.scrollHeight>b.clientHeight+1; };
+    const els=[...b.querySelectorAll('.kids li,.kids .nmx,.kids .mt,.kids .mr,.kids .nt,.sp_,.kl,.hh_,.subs,.tablet,.tablet *')];
+    while(over()&&f>.58){ f-=.04; b.style.setProperty('--k',f.toFixed(2)); }
+    if(f>=1&&b.querySelector('.pgrid')){
+      let last=1;
+      while(f<1.2){ f+=.04; b.style.setProperty('--k',f.toFixed(2)); if(over()){ b.style.setProperty('--k',last.toFixed(2)); break; } last=f; }
+    }
+  });
+}
+function fitAll(){ (view==='book'?[...book.children]:[deckEls[cur]]).forEach(fit); }
+
+function counters(el){
+  el.querySelectorAll('[data-n]').forEach(v=>{ const to=+v.dataset.n; if(v._done){v.textContent=to;return;} v._done=1; const t0=performance.now();
+    (function tick(t){const p=Math.min(1,(t-t0)/1100);v.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);})(t0);});
+}
+function show(i,push){
+  i=Math.max(0,Math.min(N-1,i)); const old=cur; cur=i;
+  deckEls.forEach((el,k)=>{el.classList.toggle('active',k===i);el.classList.toggle('prev',k<i);});
+  $('#cnt').textContent=`Trang ${i+1} / ${N} · ${slides[i].group}`;
+  $('#barfill').style.width=((i+1)/N*100)+'%';
+  $('#jump').value=i; $('#prev').disabled=i===0; $('#next').disabled=i===N-1;
+  $('#prev').style.opacity=i===0?.4:1; $('#next').style.opacity=i===N-1?.4:1;
+  if(push!==false) history.replaceState(null,'','#t'+(i+1));
+  requestAnimationFrame(()=>{fit(deckEls[i]);counters(deckEls[i]);});
+  if(innerWidth<=820) $('.stage-wrap').scrollTop=0;
+}
+function setView(v){
+  view=v;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+  $('#'+v+'View').classList.add('on');
+  if(v==='deck'){ requestAnimationFrame(()=>{fit(deckEls[cur]);}); }
+  if(v==='book'){ requestAnimationFrame(()=>{[...book.children].forEach(fit);book.querySelectorAll('[data-n]').forEach(x=>x.textContent=x.dataset.n);}); }
+}
+function goUid(uid){ const s=cardSlide[uid]; if(!s)return; if(view==='book'){ setView('deck'); } if(view!=='deck')setView('deck'); show(s.i); }
+function goHead(uid){ goUid(uid); }
+
+/* tabs + nav */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>setView(t.dataset.v));
+$('#prev').onclick=()=>show(cur-1); $('#next').onclick=()=>show(cur+1);
+$('#bar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();show(Math.round((e.clientX-r.left)/r.width*(N-1)));};
+$('#jump').innerHTML=(function(){let g='',h='';slides.forEach((s,i)=>{ if(s.group!==g){ if(g)h+='</optgroup>'; g=s.group; h+=`<optgroup label="${esc(g)}">`;} h+=`<option value="${i}">${String(i+1).padStart(2,'0')} · ${esc(s.title.length>34?s.title.slice(0,32)+'…':s.title)}</option>`; }); return h+'</optgroup>';})();
+$('#jump').onchange=e=>{setView('deck');show(+e.target.value);};
+$('#fs').onclick=()=>{ if(!document.fullscreenElement) document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); else document.exitFullscreen(); };
+$('#pr').onclick=()=>{ setView('book'); setTimeout(()=>print(),400); };
+
+/* click delegation (deck + book) */
+function onClick(e){
+  const g=e.target.closest('[data-go],[data-gohead],[data-act]'); if(!g)return;
+  if(g.dataset.go||g.dataset.gohead){ goUid(g.dataset.go||g.dataset.gohead); }
+  else if(g.dataset.act==='first'){ setView('deck'); show(0); }
+  else if(g.dataset.act==='print'){ setView('book'); setTimeout(()=>print(),400); }
+  else if(g.dataset.act==='tree'){ setView('tree'); }
+}
+stage.addEventListener('click',onClick); book.addEventListener('click',onClick);
+
+/* bàn phím + vuốt */
+addEventListener('keydown',e=>{
+  if(e.target.matches('input,select'))return;
+  if(e.key==='/'){e.preventDefault();$('#q').focus();return;}
+  if(view==='deck'){
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(cur+1);}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(cur-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(N-1);
+  }
+  if(e.key==='f'||e.key==='F')$('#fs').click();
+  if(e.key==='b'||e.key==='B')setView(view==='book'?'deck':'book');
+});
+let tx=null; stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+stage.addEventListener('touchend',e=>{ if(tx===null)return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>60){show(cur+(dx<0?1:-1));} tx=null;});
+addEventListener('resize',()=>{fitAll();});
+
+/* ---------- 4. tìm kiếm ---------- */
+const q=$('#q'), res=$('#res');
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase(); if(t.length<2){res.classList.remove('show');return;}
+  const hits=slides.filter(s=>s.search&&s.search.includes(t)).slice(0,30);
+  res.innerHTML=hits.length?hits.map(s=>{
+    const k=s.search.indexOf(t); const ctx=s.search.slice(Math.max(0,k-30),k+60);
+    return `<button data-s="${s.i}">${esc(s.title)}<small>${esc(s.group)}${s.title.toLowerCase().includes(t)?'':' · …'+esc(ctx)+'…'}</small></button>`;}).join(''):'<div class="none">Không tìm thấy kết quả.</div>';
+  res.classList.add('show');
+});
+res.onclick=e=>{const b=e.target.closest('[data-s]'); if(!b)return; setView('deck'); show(+b.dataset.s); res.classList.remove('show'); q.value='';};
+document.addEventListener('click',e=>{ if(!e.target.closest('.search'))res.classList.remove('show'); });
+q.addEventListener('keydown',e=>{ if(e.key==='Escape'){res.classList.remove('show');q.blur();} if(e.key==='Enter'){const b=res.querySelector('[data-s]'); if(b)b.click();} });
+
+/* ---------- 5. phả đồ (cây) ---------- */
+function treeNode(c){
+  const hasKids=c.children.length+c.kids.filter(k=>!c.children.includes(k)).length;
+  const kids=c.children.length?c.children:c.kids;
+  const startCol=c.gen>=4&&kids.length>0&&c.gen!==4;
+  return `<li class="${kids.length?(c.gen>=5?'col':''):'leaf'}"><span class="tn" data-uid="${c.uid}"><span class="tg"></span><span class="g">${ROM[Math.min(c.gen,7)]}</span>${esc(c.main)}<span class="k">${c.houses.reduce((a,h)=>a+h.items.length,0)} con</span></span>${kids.length?`<ul>${kids.map(treeNode).join('')}</ul>`:''}</li>`;
+}
+/* gắn level-2 vào children để cây đủ */
+cards.forEach(c=>{ if(c.gen===7){} });
+cards.filter(c=>c.parent&&c.gen>=7&&!c.parent.children.includes(c)).forEach(c=>c.parent.children.push(c));
+$('#tr').innerHTML='<ul>'+treeNode(gen1)+'</ul>';
+$('#tr').addEventListener('click',e=>{
+  const tg=e.target.closest('.tg'); const tn=e.target.closest('.tn'); if(!tn)return;
+  if(tg){ tn.parentElement.classList.toggle('col'); return; }
+  setView('deck'); show(cardSlide[tn.dataset.uid].i);
+});
+$('#expAll').onclick=()=>document.querySelectorAll('.tr li').forEach(l=>l.classList.remove('col'));
+$('#colAll').onclick=()=>document.querySelectorAll('.tr li').forEach(l=>{ if(l.querySelector(':scope>ul')&&l.querySelector('.tn .g')&&l.querySelector('.tn .g').textContent!=='I'&&l.querySelector('.tn .g').textContent!=='II'&&l.querySelector('.tn .g').textContent!=='III')l.classList.add('col'); });
+
+/* ---------- khởi động ---------- */
+const m=location.hash.match(/#t(\d+)/);
+show(m?+m[1]-1:0,false);
+setTimeout(()=>{fit(deckEls[cur]);},300);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{fitAll();if(view==='book')[...book.children].forEach(fit);});
+})();
+</script>
+</body>
+</html>
